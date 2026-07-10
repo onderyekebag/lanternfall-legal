@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Terms of Service — Kyrzma Studios</title>
+<meta name="description" content="Terms of Service for Kyrzma Studios mobile games (LANTERNFALL, Perisar and others).">
+<style>
+  :root {
+    --bg: #0c0e14;
+    --surface: #141824;
+    --surface-2: #1b2030;
+    --border: #262c3d;
+    --text: #dce1ec;
+    --muted: #9aa3b8;
+    --heading: #f2f4fa;
+    --accent: #8b7bff;
+    --accent-2: #38e0d4;
+    --link: #a99bff;
+    --shadow: 0 8px 30px rgba(0,0,0,0.35);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f4f6fb;
+      --surface: #ffffff;
+      --surface-2: #f0f2f8;
+      --border: #e0e4ee;
+      --text: #2a2f3c;
+      --muted: #5b6273;
+      --heading: #171a22;
+      --accent: #6a5aef;
+      --accent-2: #0fb5aa;
+      --link: #5a49dd;
+      --shadow: 0 8px 30px rgba(30,40,80,0.08);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  header.site {
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  }
+  .header-inner {
+    max-width: 720px; margin: 0 auto; padding: 28px 20px 24px;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .logo {
+    width: 40px; height: 40px; border-radius: 11px; flex: none;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    display: grid; place-items: center;
+    color: #0c0e14; font-weight: 800; font-size: 19px; letter-spacing: -0.5px;
+    box-shadow: var(--shadow); text-decoration: none;
+  }
+  .brand-name { font-weight: 700; color: var(--heading); font-size: 18px; letter-spacing: 0.2px; }
+  .brand-sub { color: var(--muted); font-size: 13px; margin-top: 1px; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .lang-switch { display: inline-flex; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 3px; }
+  .lang-switch button {
+    appearance: none; border: 0; background: transparent; color: var(--muted);
+    font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+    padding: 6px 14px; border-radius: 7px; transition: background .15s, color .15s;
+  }
+  .lang-switch button.active { background: var(--accent); color: #0c0e14; }
+  .lang-switch button:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+  main { padding: 34px 0 10px; }
+  h1 { color: var(--heading); font-size: 30px; line-height: 1.2; margin: 0 0 6px; letter-spacing: -0.4px; }
+  .updated { color: var(--muted); font-size: 14px; margin: 0 0 26px; }
+  h2 {
+    color: var(--heading); font-size: 20px; margin: 34px 0 10px; letter-spacing: -0.2px;
+    padding-top: 6px;
+  }
+  h2 .num { color: var(--accent); font-weight: 700; margin-right: 8px; }
+  p { margin: 0 0 14px; }
+  ul { margin: 0 0 14px; padding-left: 22px; }
+  li { margin: 6px 0; }
+  strong { color: var(--heading); }
+  a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: var(--link); }
+  .lead {
+    background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+    border-radius: 12px; padding: 16px 18px; margin: 0 0 8px; color: var(--text);
+  }
+  hr { border: 0; border-top: 1px solid var(--border); margin: 40px 0 0; }
+  footer.site { padding: 26px 0 40px; text-align: center; color: var(--muted); font-size: 14px; }
+  footer.site .mark { color: var(--heading); font-weight: 600; }
+  footer.site .nav { margin-top: 8px; }
+  footer.site a { color: var(--muted); }
+  footer.site a:hover { color: var(--link); border-bottom-color: transparent; }
+  [hidden] { display: none !important; }
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    h1 { font-size: 25px; }
+    h2 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+  <header class="site">
+    <div class="header-inner">
+      <div class="brand">
+        <a class="logo" href="../" aria-label="Kyrzma Studios home">K</a>
+        <div>
+          <div class="brand-name">Kyrzma Studios</div>
+          <div class="brand-sub" data-en="Independent mobile game studio" data-tr="Bağımsız mobil oyun stüdyosu">Independent mobile game studio</div>
+        </div>
+      </div>
+      <div class="topbar">
+        <div class="brand-sub" data-en="Terms of Service" data-tr="Kullanım Koşulları">Terms of Service</div>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" id="btn-en" class="active" onclick="setLang('en')">EN</button>
+          <button type="button" id="btn-tr" onclick="setLang('tr')">TR</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <!-- ================= ENGLISH ================= -->
+      <div id="lang-en">
+        <h1>Terms of Service</h1>
+        <p class="updated">Last updated: July 9, 2026</p>
+
+        <p class="lead">These Terms of Service ("Terms") govern your use of the mobile games developed and published by <strong>Kyrzma Studios</strong> ("we", "us", "our") &mdash; including <strong>LANTERNFALL</strong>, <strong>Perisar</strong> and any future titles we release (each, a "Game"). By downloading or playing any of our Games, you agree to these Terms.</p>
+
+        <h2><span class="num">1.</span>License</h2>
+        <p>We grant you a personal, non-exclusive, non-transferable, revocable license to install and play our Games on devices you own or control, for personal, non-commercial entertainment.</p>
+
+        <h2><span class="num">2.</span>Acceptable Use</h2>
+        <p>You agree not to: reverse-engineer, decompile, or modify a Game except as permitted by law; cheat, exploit, or tamper with a Game; use a Game for any unlawful purpose; or redistribute a Game or its assets.</p>
+
+        <h2><span class="num">3.</span>In-App Purchases &amp; Ads</h2>
+        <p>Our Games are free to play and may be supported by advertising (Google AdMob). A Game may offer optional in-app purchases (for example, removing ads), processed by Google Play or the Apple App Store. All purchases are final except as required by the applicable app store's refund policies and applicable law.</p>
+
+        <h2><span class="num">4.</span>Intellectual Property</h2>
+        <p>Our Games, including their code, art, audio, and titles (such as "LANTERNFALL" and "Perisar"), are owned by Kyrzma Studios or its licensors and are protected by intellectual-property laws. No rights are granted except as expressly stated in these Terms.</p>
+
+        <h2><span class="num">5.</span>Disclaimer</h2>
+        <p>Our Games are provided "as is", without warranties of any kind. We do not guarantee that any Game will be uninterrupted or error-free.</p>
+
+        <h2><span class="num">6.</span>Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, Kyrzma Studios is not liable for any indirect, incidental, or consequential damages arising from your use of our Games.</p>
+
+        <h2><span class="num">7.</span>Changes</h2>
+        <p>We may update these Terms from time to time. Continued play after changes are posted constitutes acceptance of the updated Terms.</p>
+
+        <h2><span class="num">8.</span>Contact</h2>
+        <p>Questions about these Terms:</p>
+        <p><strong>Kyrzma Studios</strong><br>
+        Email: <a href="mailto:ykbgonder@gmail.com">ykbgonder@gmail.com</a></p>
+      </div>
+
+      <!-- ================= TÜRKÇE ================= -->
+      <div id="lang-tr" hidden>
+        <h1>Kullanım Koşulları</h1>
+        <p class="updated">Son güncelleme: 9 Temmuz 2026</p>
+
+        <p class="lead">Bu Kullanım Koşulları ("Koşullar"), <strong>Kyrzma Studios</strong> ("biz", "bizim") tarafından geliştirilen ve yayınlanan mobil oyunların &mdash; <strong>LANTERNFALL</strong>, <strong>Perisar</strong> ve gelecekte yayınlayacağımız tüm oyunlar dahil (her biri "Oyun") &mdash; kullanımını düzenler. Oyunlarımızdan herhangi birini indirerek veya oynayarak bu Koşulları kabul etmiş olursunuz.</p>
+
+        <h2><span class="num">1.</span>Lisans</h2>
+        <p>Oyunlarımızı, sahibi olduğunuz veya kontrol ettiğiniz cihazlara kurup kişisel, ticari olmayan eğlence amacıyla oynamanız için size kişisel, münhasır olmayan, devredilemez ve iptal edilebilir bir lisans veririz.</p>
+
+        <h2><span class="num">2.</span>Kabul Edilebilir Kullanım</h2>
+        <p>Şunları yapmamayı kabul edersiniz: bir Oyunu yasaların izin verdiği durumlar dışında tersine mühendislikle çözmek, kaynak koda dönüştürmek veya değiştirmek; bir Oyunda hile yapmak, açık kullanmak veya kurcalamak; bir Oyunu herhangi bir yasa dışı amaçla kullanmak; ya da bir Oyunu veya içeriklerini yeniden dağıtmak.</p>
+
+        <h2><span class="num">3.</span>Uygulama İçi Satın Almalar ve Reklamlar</h2>
+        <p>Oyunlarımız ücretsizdir ve reklamlarla (Google AdMob) desteklenebilir. Bir Oyun, Google Play veya Apple App Store tarafından işlenen isteğe bağlı uygulama içi satın almalar (örneğin reklamları kaldırma) sunabilir. İlgili uygulama mağazasının iade politikaları ve geçerli yasaların gerektirdiği durumlar dışında tüm satın almalar nihaidir.</p>
+
+        <h2><span class="num">4.</span>Fikri Mülkiyet</h2>
+        <p>Kodu, görseli, sesi ve adları ("LANTERNFALL" ve "Perisar" gibi) dahil olmak üzere Oyunlarımız, Kyrzma Studios'a veya lisans verenlerine aittir ve fikri mülkiyet yasalarıyla korunur. Bu Koşullarda açıkça belirtilenler dışında hiçbir hak verilmez.</p>
+
+        <h2><span class="num">5.</span>Sorumluluk Reddi</h2>
+        <p>Oyunlarımız "olduğu gibi", herhangi bir garanti verilmeksizin sunulur. Herhangi bir Oyunun kesintisiz veya hatasız olacağını garanti etmeyiz.</p>
+
+        <h2><span class="num">6.</span>Sorumluluğun Sınırlandırılması</h2>
+        <p>Yasaların izin verdiği azami ölçüde, Kyrzma Studios; Oyunlarımızı kullanmanızdan doğan hiçbir dolaylı, arızi veya sonuçsal zarardan sorumlu değildir.</p>
+
+        <h2><span class="num">7.</span>Değişiklikler</h2>
+        <p>Bu Koşulları zaman zaman güncelleyebiliriz. Değişiklikler yayımlandıktan sonra oynamaya devam etmeniz, güncellenmiş Koşulları kabul ettiğiniz anlamına gelir.</p>
+
+        <h2><span class="num">8.</span>İletişim</h2>
+        <p>Bu Koşullar hakkında sorularınız için:</p>
+        <p><strong>Kyrzma Studios</strong><br>
+        E-posta: <a href="mailto:ykbgonder@gmail.com">ykbgonder@gmail.com</a></p>
+      </div>
+
+    </div>
+  </main>
+
+  <hr>
+  <footer class="site">
+    <span class="mark">© 2026 Kyrzma Studios</span>
+    <div class="nav">
+      <a href="../" data-en="Home" data-tr="Ana Sayfa">Home</a> &nbsp;·&nbsp;
+      <a href="../privacy/" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      var isEn = lang === 'en';
+      document.getElementById('lang-en').hidden = !isEn;
+      document.getElementById('lang-tr').hidden = isEn;
+      document.getElementById('btn-en').classList.toggle('active', isEn);
+      document.getElementById('btn-tr').classList.toggle('active', !isEn);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-en]').forEach(function (el) {
+        el.textContent = el.getAttribute(isEn ? 'data-en' : 'data-tr');
+      });
+      try { localStorage.setItem('kyrzma-lang', lang); } catch (e) {}
+    }
+    (function () {
+      var saved = 'en';
+      try { saved = localStorage.getItem('kyrzma-lang') || 'en'; } catch (e) {}
+      if (saved !== 'en' && saved !== 'tr') saved = 'en';
+      setLang(saved);
+    })();
+  </script>
+</body>
+</html>
