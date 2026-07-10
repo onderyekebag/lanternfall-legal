@@ -5,35 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
 <title>Kyrzma Studios</title>
-<meta name="description" content="Kyrzma Studios — independent mobile game studio. Legal documents for our games: Privacy Policy and Terms of Service.">
+<meta name="description" content="Kyrzma Studios — independent game studio founded in 2024. About the studio, Privacy Policy and Terms of Service.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#050506">
 <style>
   :root {
-    --bg: #0c0e14;
-    --surface: #141824;
-    --surface-2: #1b2030;
-    --border: #262c3d;
-    --text: #dce1ec;
-    --muted: #9aa3b8;
-    --heading: #f2f4fa;
-    --accent: #8b7bff;
-    --accent-2: #38e0d4;
-    --link: #a99bff;
-    --shadow: 0 8px 30px rgba(0,0,0,0.35);
-  }
-  @media (prefers-color-scheme: light) {
-    :root {
-      --bg: #f4f6fb;
-      --surface: #ffffff;
-      --surface-2: #f0f2f8;
-      --border: #e0e4ee;
-      --text: #2a2f3c;
-      --muted: #5b6273;
-      --heading: #171a22;
-      --accent: #6a5aef;
-      --accent-2: #0fb5aa;
-      --link: #5a49dd;
-      --shadow: 0 8px 30px rgba(30,40,80,0.08);
-    }
+    --bg: #050506;
+    --surface: #0e0f12;
+    --surface-2: #15161b;
+    --border: #26282f;
+    --border-strong: #3b3e47;
+    --text: #c7cbd4;
+    --muted: #7f838f;
+    --heading: #f3f4f8;
+    --silver: #b9bdc7;
+    --silver-bright: #e9ebf1;
+    --shadow: 0 10px 40px rgba(0,0,0,0.55);
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -41,179 +29,130 @@
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 17px;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
   .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
-  header.site {
-    border-bottom: 1px solid var(--border);
-    background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+
+  .hero {
+    position: relative; width: 100%;
+    height: 55vh; min-height: 280px; max-height: 620px;
+    overflow: hidden; background: #000;
   }
-  .header-inner {
-    max-width: 720px; margin: 0 auto; padding: 28px 20px 24px;
-    display: flex; flex-direction: column; gap: 18px;
+  .hero-img {
+    display: block; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 42%;
   }
-  .brand { display: flex; align-items: center; gap: 12px; }
-  .logo {
-    width: 40px; height: 40px; border-radius: 11px; flex: none;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
-    display: grid; place-items: center;
-    color: #0c0e14; font-weight: 800; font-size: 19px; letter-spacing: -0.5px;
-    box-shadow: var(--shadow);
+  .hero-fade {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 45%;
+    background: linear-gradient(180deg, rgba(5,5,6,0) 0%, rgba(5,5,6,0.65) 60%, var(--bg) 100%);
+    pointer-events: none;
   }
-  .brand-name { font-weight: 700; color: var(--heading); font-size: 18px; letter-spacing: 0.2px; }
-  .brand-sub { color: var(--muted); font-size: 13px; margin-top: 1px; }
-  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  .lang-switch { display: inline-flex; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 3px; }
+  .lang-switch {
+    position: absolute; top: 18px; right: 18px; z-index: 2;
+    display: inline-flex; background: rgba(10,10,12,0.55); backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid var(--border-strong); border-radius: 10px; padding: 3px;
+  }
   .lang-switch button {
     appearance: none; border: 0; background: transparent; color: var(--muted);
-    font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
-    padding: 6px 14px; border-radius: 7px; transition: background .15s, color .15s;
+    font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+    padding: 5px 12px; border-radius: 7px; transition: background .15s, color .15s;
   }
-  .lang-switch button.active { background: var(--accent); color: #0c0e14; }
-  .lang-switch button:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+  .lang-switch button.active { background: var(--silver); color: #0a0a0c; }
+  .lang-switch button:focus-visible { outline: 2px solid var(--silver-bright); outline-offset: 2px; }
 
-  main { padding: 40px 0 10px; }
-  h1 { color: var(--heading); font-size: 34px; line-height: 1.15; margin: 0 0 10px; letter-spacing: -0.6px; }
-  .lead {
-    background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent);
-    border-radius: 12px; padding: 16px 18px; margin: 0 0 34px; color: var(--text);
-  }
+  main { padding: 8px 0 10px; }
   h2 {
-    color: var(--heading); font-size: 15px; text-transform: uppercase; letter-spacing: 0.14em;
-    margin: 34px 0 14px; color: var(--muted);
+    color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.24em;
+    margin: 46px 0 16px; font-weight: 700;
   }
-  .games { display: grid; gap: 14px; }
-  .game {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-    padding: 16px 18px; display: flex; align-items: center; gap: 14px;
+  h2::after {
+    content: ""; display: block; width: 40px; height: 1px; margin-top: 10px;
+    background: linear-gradient(90deg, var(--border-strong), transparent);
   }
-  .game .thumb {
-    width: 44px; height: 44px; border-radius: 12px; flex: none;
-    display: grid; place-items: center; font-size: 22px;
-    background: var(--surface-2); border: 1px solid var(--border);
-  }
-  .game .info { flex: 1 1 auto; min-width: 0; }
-  .game .title { font-weight: 700; color: var(--heading); font-size: 17px; }
-  .game .desc { color: var(--muted); font-size: 14px; margin-top: 2px; }
-  .status {
-    flex: none; font-size: 12px; font-weight: 700; letter-spacing: 0.03em;
-    padding: 5px 11px; border-radius: 999px; white-space: nowrap;
-  }
-  .status.live { color: var(--accent-2); background: color-mix(in srgb, var(--accent-2) 14%, transparent); border: 1px solid color-mix(in srgb, var(--accent-2) 35%, transparent); }
-  .status.dev { color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+  .about p { margin: 0 0 18px; color: var(--text); }
+  .about p:last-child { margin-bottom: 0; }
 
   .docs { display: grid; gap: 12px; }
   .doc {
-    display: flex; align-items: center; gap: 14px;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-    padding: 16px 18px; color: var(--text); text-decoration: none;
-    transition: border-color .15s, transform .05s;
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    background: linear-gradient(180deg, var(--surface) 0%, #0b0c0e 100%);
+    border: 1px solid var(--border-strong); border-radius: 14px;
+    padding: 18px 20px; color: var(--text); text-decoration: none;
+    transition: border-color .15s, background .15s, transform .05s;
   }
-  .doc:hover { border-color: var(--accent); }
+  .doc:hover { border-color: var(--silver); background: var(--surface-2); }
   .doc:active { transform: translateY(1px); }
-  .doc .doc-icon { font-size: 20px; flex: none; }
-  .doc .doc-body { flex: 1 1 auto; }
-  .doc .doc-title { font-weight: 700; color: var(--heading); font-size: 16px; }
-  .doc .doc-sub { color: var(--muted); font-size: 13px; margin-top: 1px; }
-  .doc .chev { color: var(--muted); flex: none; }
+  .doc .doc-title { font-weight: 700; color: var(--heading); font-size: 16px; letter-spacing: 0.02em; }
+  .doc .chev { color: var(--silver); flex: none; font-size: 20px; }
 
-  .archive { color: var(--muted); font-size: 14px; margin-top: 16px; }
-  .archive a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
-  .archive a:hover { border-bottom-color: var(--link); }
+  .contact {
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 2px solid var(--silver);
+    border-radius: 12px; padding: 16px 18px; color: var(--text);
+  }
+  .contact a { color: var(--silver-bright); text-decoration: none; border-bottom: 1px solid var(--border-strong); }
+  .contact a:hover { border-bottom-color: var(--silver); }
 
-  hr { border: 0; border-top: 1px solid var(--border); margin: 44px 0 0; }
-  footer.site { padding: 26px 0 40px; text-align: center; color: var(--muted); font-size: 14px; }
-  footer.site .mark { color: var(--heading); font-weight: 600; }
+  hr { border: 0; border-top: 1px solid var(--border); margin: 56px 0 0; }
+  footer.site { padding: 26px 0 44px; text-align: center; color: var(--muted); font-size: 14px; }
+  footer.site .mark { color: var(--silver); font-weight: 600; letter-spacing: 0.02em; }
   footer.site a { color: var(--muted); text-decoration: none; }
-  footer.site a:hover { color: var(--link); }
+  footer.site a:hover { color: var(--silver-bright); }
   [hidden] { display: none !important; }
   @media (max-width: 480px) {
     body { font-size: 16px; }
-    h1 { font-size: 28px; }
-    .game { flex-wrap: wrap; }
-    .status { order: 3; }
+    .hero { height: 42vh; min-height: 220px; }
   }
 </style>
 </head>
 <body>
-  <header class="site">
-    <div class="header-inner">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">K</div>
-        <div>
-          <div class="brand-name">Kyrzma Studios</div>
-          <div class="brand-sub" data-en="Independent mobile game studio" data-tr="Bağımsız mobil oyun stüdyosu">Independent mobile game studio</div>
-        </div>
-      </div>
-      <div class="topbar">
-        <div class="brand-sub" data-en="Legal &amp; company information" data-tr="Yasal ve şirket bilgileri">Legal &amp; company information</div>
-        <div class="lang-switch" role="group" aria-label="Language">
-          <button type="button" id="btn-en" class="active" onclick="setLang('en')">EN</button>
-          <button type="button" id="btn-tr" onclick="setLang('tr')">TR</button>
-        </div>
-      </div>
+  <div class="hero">
+    <img class="hero-img" src="assets/banner.jpg" alt="Kyrzma Studios">
+    <div class="hero-fade" aria-hidden="true"></div>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button type="button" id="btn-tr" onclick="setLang('tr')">TR</button>
     </div>
-  </header>
+  </div>
 
   <main>
     <div class="wrap">
-      <h1>Kyrzma Studios</h1>
-      <p class="lead"
-         data-en="We are an independent mobile game studio designing and publishing offline single-player games for Android and iOS. This site hosts the legal documents that apply to all of our games."
-         data-tr="Android ve iOS için çevrimdışı, tek oyunculu oyunlar tasarlayıp yayınlayan bağımsız bir mobil oyun stüdyosuyuz. Bu site, tüm oyunlarımız için geçerli yasal belgeleri barındırır.">We are an independent mobile game studio designing and publishing offline single-player games for Android and iOS. This site hosts the legal documents that apply to all of our games.</p>
-
-      <h2 data-en="Games" data-tr="Oyunlar">Games</h2>
-      <div class="games">
-        <div class="game">
-          <div class="thumb" aria-hidden="true">🏮</div>
-          <div class="info">
-            <div class="title">LANTERNFALL</div>
-            <div class="desc" data-en="Top-down stealth maze of light and sound" data-tr="Işık ve sesle ilerlenen tepeden bakışlı gizlilik labirenti">Top-down stealth maze of light and sound</div>
-          </div>
-          <span class="status live" data-en="Live / In testing" data-tr="Yayında / testte">Live / In testing</span>
-        </div>
-        <div class="game">
-          <div class="thumb" aria-hidden="true">🧚</div>
-          <div class="info">
-            <div class="title">Perisar</div>
-            <div class="desc" data-en="A new title in the making" data-tr="Yapım aşamasındaki yeni bir oyun">A new title in the making</div>
-          </div>
-          <span class="status dev" data-en="In development" data-tr="Geliştirmede">In development</span>
-        </div>
+      <h2 data-en="About" data-tr="Hakkımızda">About</h2>
+      <div class="about">
+        <p data-en="We are an independent game studio founded in 2024, with a single focus: making games that are genuinely fun to play. We build and publish titles across every category, for players of all kinds."
+           data-tr="2024'te kurulmuş bağımsız bir oyun stüdyosuyuz ve tek bir şeye odaklanıyoruz: gerçekten keyif veren oyunlar yapmak. Her kategoride, her türden oyuncu için oyunlar geliştirip yayınlıyoruz.">We are an independent game studio founded in 2024, with a single focus: making games that are genuinely fun to play. We build and publish titles across every category, for players of all kinds.</p>
+        <p data-en="We grow and improve thanks to our players — your support means everything to us. Every piece of feedback shapes what we build next."
+           data-tr="Oyuncularımız sayesinde büyüyor ve gelişiyoruz — desteğiniz bizim için her şey. Her geri bildirim, bir sonraki oyunumuzu şekillendiriyor.">We grow and improve thanks to our players — your support means everything to us. Every piece of feedback shapes what we build next.</p>
+        <p data-en="Our goal is simple: to craft games, with care and attention to detail, that everyone can enjoy."
+           data-tr="Hedefimiz basit: özenle ve detaylara önem vererek, herkesin keyif alabileceği oyunlar yapmak.">Our goal is simple: to craft games, with care and attention to detail, that everyone can enjoy.</p>
       </div>
 
-      <h2 data-en="Legal documents" data-tr="Yasal belgeler">Legal documents</h2>
+      <h2 data-en="Documents" data-tr="Belgeler">Documents</h2>
       <div class="docs">
         <a class="doc" href="privacy/">
-          <span class="doc-icon" aria-hidden="true">🔒</span>
-          <span class="doc-body">
-            <span class="doc-title" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Privacy Policy</span>
-            <span class="doc-sub" data-en="How we handle data across all our games" data-tr="Tüm oyunlarımızda verileri nasıl ele aldığımız">How we handle data across all our games</span>
-          </span>
-          <span class="chev" aria-hidden="true">›</span>
+          <span class="doc-title" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Privacy Policy</span>
+          <span class="chev" aria-hidden="true">&rsaquo;</span>
         </a>
         <a class="doc" href="terms/">
-          <span class="doc-icon" aria-hidden="true">📜</span>
-          <span class="doc-body">
-            <span class="doc-title" data-en="Terms of Service" data-tr="Kullanım Koşulları">Terms of Service</span>
-            <span class="doc-sub" data-en="The rules for using our games" data-tr="Oyunlarımızı kullanma kuralları">The rules for using our games</span>
-          </span>
-          <span class="chev" aria-hidden="true">›</span>
+          <span class="doc-title" data-en="Terms of Service" data-tr="Kullanım Koşulları">Terms of Service</span>
+          <span class="chev" aria-hidden="true">&rsaquo;</span>
         </a>
       </div>
 
-      <p class="archive"
-         data-en='Looking for the original LANTERNFALL documents? They remain available as an archive: <a href="lanternfall/privacy.html">Privacy</a> · <a href="lanternfall/terms.html">Terms</a>.'
-         data-tr='Orijinal LANTERNFALL belgelerini mi arıyorsunuz? Arşiv olarak erişilebilir durumdalar: <a href="lanternfall/privacy.html">Gizlilik</a> · <a href="lanternfall/terms.html">Koşullar</a>.'>Looking for the original LANTERNFALL documents? They remain available as an archive: <a href="lanternfall/privacy.html">Privacy</a> · <a href="lanternfall/terms.html">Terms</a>.</p>
+      <h2 data-en="Contact" data-tr="İletişim">Contact</h2>
+      <p class="contact"
+         data-en='Questions, feedback or requests? Reach us anytime at <a href="mailto:ykbgonder@gmail.com">ykbgonder@gmail.com</a>.'
+         data-tr='Soru, geri bildirim veya talepleriniz için dilediğiniz zaman <a href="mailto:ykbgonder@gmail.com">ykbgonder@gmail.com</a> adresinden bize ulaşabilirsiniz.'>Questions, feedback or requests? Reach us anytime at <a href="mailto:ykbgonder@gmail.com">ykbgonder@gmail.com</a>.</p>
     </div>
   </main>
 
   <hr>
   <footer class="site">
-    <span class="mark">© 2026 Kyrzma Studios</span> &nbsp;·&nbsp; <a href="mailto:ykbgonder@gmail.com">ykbgonder@gmail.com</a>
+    <span class="mark">© 2024–2026 Kyrzma Studios</span> &nbsp;·&nbsp; <a href="mailto:ykbgonder@gmail.com">ykbgonder@gmail.com</a>
   </footer>
 
   <script>
