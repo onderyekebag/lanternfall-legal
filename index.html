@@ -1,14 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
-<title>Kyrzma Studios</title>
-<meta name="description" content="Kyrzma Studios — independent studio making one-finger, offline mobile games. Our games: Roadloom, Perisar, LANTERNFALL. Privacy Policy and Terms of Service.">
+<title>Kyrzma Studios — Bağımsız Mobil Oyun Stüdyosu</title>
+<meta name="description" content="Kyrzma Studios — tek dokunuşla oynanan, çevrimdışı mobil oyunlar yapan bağımsız stüdyo. Oyunlar: Roadloom, Perisar, LANTERNFALL. Blog, Gizlilik Politikası ve Kullanım Koşulları.">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#050506">
+<link rel="canonical" href="https://onderyekebag.github.io/kyrzma-studios/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kyrzma Studios">
+<meta property="og:title" content="Kyrzma Studios — Bağımsız Mobil Oyun Stüdyosu">
+<meta property="og:description" content="Tek dokunuşla oynanan, çevrimdışı mobil oyunlar: Roadloom, Perisar, LANTERNFALL.">
+<meta property="og:url" content="https://onderyekebag.github.io/kyrzma-studios/">
+<meta property="og:image" content="https://onderyekebag.github.io/kyrzma-studios/assets/banner.jpg">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kyrzma Studios — Bağımsız Mobil Oyun Stüdyosu">
+<meta name="twitter:description" content="Tek dokunuşla oynanan, çevrimdışı mobil oyunlar: Roadloom, Perisar, LANTERNFALL.">
+<meta name="twitter:image" content="https://onderyekebag.github.io/kyrzma-studios/assets/banner.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Kyrzma Studios",
+  "url": "https://onderyekebag.github.io/kyrzma-studios/",
+  "logo": "https://onderyekebag.github.io/kyrzma-studios/assets/logo.png",
+  "email": "ykbgonder@gmail.com",
+  "foundingDate": "2024",
+  "founder": {
+    "@type": "Person",
+    "name": "Önder Yekebağ",
+    "jobTitle": "Founder & CEO",
+    "url": "https://github.com/onderyekebag",
+    "sameAs": ["https://github.com/onderyekebag"]
+  },
+  "sameAs": ["https://github.com/onderyekebag"]
+}
+</script>
 <style>
   :root {
     --bg: #050506;
@@ -131,6 +163,44 @@
   }
   .game--soon { opacity: 0.82; }
 
+  .founder {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 16px 18px;
+  }
+  .founder-avatar {
+    flex: none; width: 52px; height: 52px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; font-weight: 800; letter-spacing: 0.02em; color: #0a0a0c;
+    background: linear-gradient(135deg, var(--silver-bright) 0%, var(--silver) 55%, #8d919c 100%);
+  }
+  .founder-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .founder-name { font-weight: 700; color: var(--heading); font-size: 16px; }
+  .founder-role { color: var(--silver); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .founder-bio { color: var(--muted); font-size: 14px; line-height: 1.5; margin-top: 5px; }
+  .founder-gh { align-self: flex-start; margin-top: 7px; color: var(--silver-bright); font-size: 13px; text-decoration: none; border-bottom: 1px solid var(--border-strong); }
+  .founder-gh:hover { border-bottom-color: var(--silver); }
+
+  .posts { display: grid; gap: 12px; }
+  .post {
+    display: block;
+    background: linear-gradient(180deg, var(--surface) 0%, #0b0c0e 100%);
+    border: 1px solid var(--border-strong); border-radius: 14px;
+    padding: 16px 20px; color: var(--text); text-decoration: none;
+    transition: border-color .15s, background .15s, transform .05s;
+  }
+  .post:hover { border-color: var(--silver); background: var(--surface-2); }
+  .post:active { transform: translateY(1px); }
+  .post:focus-visible { outline: 2px solid var(--silver-bright); outline-offset: 2px; }
+  .post-date { display: block; color: var(--muted); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+  .post-title { display: block; font-weight: 700; color: var(--heading); font-size: 16px; letter-spacing: 0.02em; }
+  .post-sum { display: block; color: var(--muted); font-size: 14px; line-height: 1.5; margin-top: 4px; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+
   .contact {
     background: var(--surface); border: 1px solid var(--border);
     border-left: 2px solid var(--silver);
@@ -156,52 +226,66 @@
     <img class="hero-img" src="assets/banner.jpg" alt="Kyrzma Studios">
     <div class="hero-fade" aria-hidden="true"></div>
     <div class="lang-switch" role="group" aria-label="Language">
-      <button type="button" id="btn-en" class="active" onclick="setLang('en')">EN</button>
-      <button type="button" id="btn-tr" onclick="setLang('tr')">TR</button>
+      <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+      <button type="button" id="btn-tr" class="active" onclick="setLang('tr')">TR</button>
     </div>
   </div>
 
   <main>
     <div class="wrap">
-      <h2 data-en="About" data-tr="Hakkımızda">About</h2>
+      <h1 class="sr-only" data-en="Kyrzma Studios — independent mobile game studio" data-tr="Kyrzma Studios — bağımsız mobil oyun stüdyosu">Kyrzma Studios — bağımsız mobil oyun stüdyosu</h1>
+      <h2 data-en="About" data-tr="Hakkımızda">Hakkımızda</h2>
       <div class="about">
         <p data-en="Kyrzma Studios is an independent studio founded in 2024. We make mobile games built around a single touch — simple controls, short sessions, and no account to sign up for."
-           data-tr="Kyrzma Studios, 2024'te kurulmuş bağımsız bir stüdyo. Tek dokunuş üzerine kurulu mobil oyunlar yapıyoruz: basit kontroller, kısa oturumlar ve hesap açma zorunluluğu yok.">Kyrzma Studios is an independent studio founded in 2024. We make mobile games built around a single touch — simple controls, short sessions, and no account to sign up for.</p>
+           data-tr="Kyrzma Studios, 2024'te kurulmuş bağımsız bir stüdyo. Tek dokunuş üzerine kurulu mobil oyunlar yapıyoruz: basit kontroller, kısa oturumlar ve hesap açma zorunluluğu yok.">Kyrzma Studios, 2024'te kurulmuş bağımsız bir stüdyo. Tek dokunuş üzerine kurulu mobil oyunlar yapıyoruz: basit kontroller, kısa oturumlar ve hesap açma zorunluluğu yok.</p>
         <p data-en="Our games run offline, so you can play them anywhere. We build them a step at a time and refine each one with player feedback."
-           data-tr="Oyunlarımız çevrimdışı çalışır; her yerde oynayabilirsiniz. Oyunları adım adım geliştiriyor ve her birini oyuncu geri bildirimiyle iyileştiriyoruz.">Our games run offline, so you can play them anywhere. We build them a step at a time and refine each one with player feedback.</p>
+           data-tr="Oyunlarımız çevrimdışı çalışır; her yerde oynayabilirsiniz. Oyunları adım adım geliştiriyor ve her birini oyuncu geri bildirimiyle iyileştiriyoruz.">Oyunlarımız çevrimdışı çalışır; her yerde oynayabilirsiniz. Oyunları adım adım geliştiriyor ve her birini oyuncu geri bildirimiyle iyileştiriyoruz.</p>
       </div>
 
-      <h2 data-en="Games" data-tr="Oyunlar">Games</h2>
+      <h2 data-en="Founder" data-tr="Kurucu">Kurucu</h2>
+      <div class="founder">
+        <div class="founder-avatar" aria-hidden="true">ÖY</div>
+        <div class="founder-body">
+          <span class="founder-name">Önder Yekebağ</span>
+          <span class="founder-role" data-en="Founder &amp; CEO" data-tr="Kurucu &amp; CEO">Kurucu &amp; CEO</span>
+          <span class="founder-bio"
+            data-en="Founder of Kyrzma Studios; leads the design and development of the studio's games."
+            data-tr="Kyrzma Studios'un kurucusu; stüdyonun oyunlarının tasarım ve geliştirmesine liderlik ediyor.">Kyrzma Studios'un kurucusu; stüdyonun oyunlarının tasarım ve geliştirmesine liderlik ediyor.</span>
+          <a class="founder-gh" href="https://github.com/onderyekebag" target="_blank" rel="noopener">github.com/onderyekebag</a>
+        </div>
+      </div>
+
+      <h2 data-en="Games" data-tr="Oyunlar">Oyunlar</h2>
       <div class="games">
-        <a class="game" href="https://play.google.com/store/apps/details?id=com.kyrzma.roadloom" target="_blank" rel="noopener" aria-label="Roadloom on Google Play">
-          <img class="game-icon" src="assets/games/roadloom.png" alt="Roadloom icon" width="60" height="60" loading="lazy">
+        <a class="game" href="https://play.google.com/store/apps/details?id=com.kyrzma.roadloom" target="_blank" rel="noopener" aria-label="Roadloom — Google Play">
+          <img class="game-icon" src="assets/games/roadloom.png" alt="Roadloom" width="60" height="60" loading="lazy">
           <div class="game-body">
             <span class="game-name">Roadloom</span>
             <span class="game-desc"
               data-en="Drag your three road pieces to bridge the gaps ahead of the runner. Jumps, obstacles, speed and storm, day and night, plus a character shop."
-              data-tr="Elindeki üç yol parçasını sürükleyip koşucunun önündeki boşluklara döşersin. Zıplama, engeller, hız ve fırtına, gece-gündüz ve bir karakter marketi.">Drag your three road pieces to bridge the gaps ahead of the runner. Jumps, obstacles, speed and storm, day and night, plus a character shop.</span>
+              data-tr="Elindeki üç yol parçasını sürükleyip koşucunun önündeki boşluklara döşersin. Zıplama, engeller, hız ve fırtına, gece-gündüz ve bir karakter marketi.">Elindeki üç yol parçasını sürükleyip koşucunun önündeki boşluklara döşersin. Zıplama, engeller, hız ve fırtına, gece-gündüz ve bir karakter marketi.</span>
             <span class="gplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5v19l16-9.5z" fill="currentColor"/></svg>Google Play</span>
           </div>
         </a>
 
-        <a class="game" href="https://play.google.com/store/apps/details?id=com.kyrzma.perisar" target="_blank" rel="noopener" aria-label="Perisar on Google Play">
-          <img class="game-icon" src="assets/games/perisar.png" alt="Perisar icon" width="60" height="60" loading="lazy">
+        <a class="game" href="https://play.google.com/store/apps/details?id=com.kyrzma.perisar" target="_blank" rel="noopener" aria-label="Perisar — Google Play">
+          <img class="game-icon" src="assets/games/perisar.png" alt="Perisar" width="60" height="60" loading="lazy">
           <div class="game-body">
             <span class="game-name">Perisar</span>
             <span class="game-desc"
               data-en="One-finger push-and-pull control in a black hole's orbit. Collect crystals, avoid the heat and the hunter, and dive through the layers."
-              data-tr="Karadelik yörüngesinde tek parmakla bas-çek kontrolü. Kristalleri toplar, ısıdan ve avcıdan kaçınıp katlara dalarsın.">One-finger push-and-pull control in a black hole's orbit. Collect crystals, avoid the heat and the hunter, and dive through the layers.</span>
+              data-tr="Karadelik yörüngesinde tek parmakla bas-çek kontrolü. Kristalleri toplar, ısıdan ve avcıdan kaçınıp katlara dalarsın.">Karadelik yörüngesinde tek parmakla bas-çek kontrolü. Kristalleri toplar, ısıdan ve avcıdan kaçınıp katlara dalarsın.</span>
             <span class="gplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5v19l16-9.5z" fill="currentColor"/></svg>Google Play</span>
           </div>
         </a>
 
-        <a class="game" href="https://play.google.com/store/apps/details?id=com.kyrzma.lanternfall" target="_blank" rel="noopener" aria-label="LANTERNFALL on Google Play">
-          <img class="game-icon" src="assets/games/lanternfall.png" alt="LANTERNFALL icon" width="60" height="60" loading="lazy">
+        <a class="game" href="https://play.google.com/store/apps/details?id=com.kyrzma.lanternfall" target="_blank" rel="noopener" aria-label="LANTERNFALL — Google Play">
+          <img class="game-icon" src="assets/games/lanternfall.png" alt="LANTERNFALL" width="60" height="60" loading="lazy">
           <div class="game-body">
             <span class="game-name">LANTERNFALL</span>
             <span class="game-desc"
               data-en="A top-down stealth maze. Guide your lantern to the exit without being caught by light or sound. 20 levels, with bosses."
-              data-tr="Top-down stealth labirent. Işığa ve sese yakalanmadan feneri yönetip çıkışa ulaşırsın. 20 bölüm ve boss'lar.">A top-down stealth maze. Guide your lantern to the exit without being caught by light or sound. 20 levels, with bosses.</span>
+              data-tr="Top-down stealth labirent. Işığa ve sese yakalanmadan feneri yönetip çıkışa ulaşırsın. 20 bölüm ve boss'lar.">Top-down stealth labirent. Işığa ve sese yakalanmadan feneri yönetip çıkışa ulaşırsın. 20 bölüm ve boss'lar.</span>
             <span class="gplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5v19l16-9.5z" fill="currentColor"/></svg>Google Play</span>
           </div>
         </a>
@@ -209,30 +293,54 @@
         <div class="game game--soon">
           <div class="game-icon game-icon--ph" aria-hidden="true">U</div>
           <div class="game-body">
-            <span class="game-name">Umbra <span class="soon-badge" data-en="Coming Soon" data-tr="Yakında">Coming Soon</span></span>
+            <span class="game-name">Umbra <span class="soon-badge" data-en="Coming Soon" data-tr="Yakında">Yakında</span></span>
             <span class="game-desc"
               data-en="Drag the sun with your finger; the character can only walk across the shadows."
-              data-tr="Güneşi parmağınla sürüklersin; karakter yalnızca gölgelerin üzerinde yürüyebilir.">Drag the sun with your finger; the character can only walk across the shadows.</span>
+              data-tr="Güneşi parmağınla sürüklersin; karakter yalnızca gölgelerin üzerinde yürüyebilir.">Güneşi parmağınla sürüklersin; karakter yalnızca gölgelerin üzerinde yürüyebilir.</span>
           </div>
         </div>
       </div>
 
-      <h2 data-en="Documents" data-tr="Belgeler">Documents</h2>
+      <h2 id="blog" data-en="Blog" data-tr="Blog">Blog</h2>
+      <div class="posts">
+        <a class="post" href="blog/perisar-kara-delige-inis/">
+          <span class="post-date" data-en="June 26, 2026" data-tr="26 Haziran 2026">26 Haziran 2026</span>
+          <span class="post-title" data-en="Perisar: descent into a black hole" data-tr="Perisar: kara deliğe iniş">Perisar: kara deliğe iniş</span>
+          <span class="post-sum" data-en="One-finger press-and-release orbit control, crystals, heat, a hunter, and runs that are deterministic by seed." data-tr="Tek parmak bas-çek yörünge kontrolü, kristaller, ısı, avcı ve tohum numarasıyla deterministik koşular.">Tek parmak bas-çek yörünge kontrolü, kristaller, ısı, avcı ve tohum numarasıyla deterministik koşular.</span>
+        </a>
+        <a class="post" href="blog/lanternfall-isik-ve-ses/">
+          <span class="post-date" data-en="June 19, 2026" data-tr="19 Haziran 2026">19 Haziran 2026</span>
+          <span class="post-title" data-en="LANTERNFALL: hide-and-seek with light and sound" data-tr="LANTERNFALL: ışık ve sesle saklambaç">LANTERNFALL: ışık ve sesle saklambaç</span>
+          <span class="post-sum" data-en="In a stealth maze where enemies see light and hear sound, the lantern is both your tool and your risk." data-tr="Düşmanların ışığı gördüğü ve sesi duyduğu stealth labirentte fener hem araç hem risk.">Düşmanların ışığı gördüğü ve sesi duyduğu stealth labirentte fener hem araç hem risk.</span>
+        </a>
+        <a class="post" href="blog/roadloom-yolu-oyuncu-doserse/">
+          <span class="post-date" data-en="June 12, 2026" data-tr="12 Haziran 2026">12 Haziran 2026</span>
+          <span class="post-title" data-en="Roadloom: when the player lays the road" data-tr="Roadloom: yolu oyuncu döşerse">Roadloom: yolu oyuncu döşerse</span>
+          <span class="post-sum" data-en="Development notes on the solution-first road generator, the hand guarantee, day-night, and the storm bottle." data-tr="Önce çözümü üreten yol üreteci, el garantisi, gece-gündüz ve fırtına şişesi üzerine geliştirme notları.">Önce çözümü üreten yol üreteci, el garantisi, gece-gündüz ve fırtına şişesi üzerine geliştirme notları.</span>
+        </a>
+        <a class="post" href="blog/tek-dokunus/">
+          <span class="post-date" data-en="June 5, 2026" data-tr="5 Haziran 2026">5 Haziran 2026</span>
+          <span class="post-title" data-en="Why we make one-touch games" data-tr="Neden tek dokunuşlu oyunlar yapıyoruz">Neden tek dokunuşlu oyunlar yapıyoruz</span>
+          <span class="post-sum" data-en="Our studio philosophy: simple controls, short sessions, offline play, and no accounts." data-tr="Stüdyo felsefemiz: basit kontroller, kısa oturumlar, çevrimdışı oynanış ve hesapsız oyunlar.">Stüdyo felsefemiz: basit kontroller, kısa oturumlar, çevrimdışı oynanış ve hesapsız oyunlar.</span>
+        </a>
+      </div>
+
+      <h2 data-en="Documents" data-tr="Belgeler">Belgeler</h2>
       <div class="docs">
         <a class="doc" href="privacy/">
-          <span class="doc-title" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Privacy Policy</span>
+          <span class="doc-title" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Gizlilik Politikası</span>
           <span class="chev" aria-hidden="true">&rsaquo;</span>
         </a>
         <a class="doc" href="terms/">
-          <span class="doc-title" data-en="Terms of Service" data-tr="Kullanım Koşulları">Terms of Service</span>
+          <span class="doc-title" data-en="Terms of Service" data-tr="Kullanım Koşulları">Kullanım Koşulları</span>
           <span class="chev" aria-hidden="true">&rsaquo;</span>
         </a>
       </div>
 
-      <h2 data-en="Contact" data-tr="İletişim">Contact</h2>
+      <h2 data-en="Contact" data-tr="İletişim">İletişim</h2>
       <p class="contact"
          data-en='Questions, feedback or requests? Reach us anytime at <a href="mailto:ykbgonder@gmail.com">ykbgonder@gmail.com</a>.'
-         data-tr='Soru, geri bildirim veya talepleriniz için dilediğiniz zaman <a href="mailto:ykbgonder@gmail.com">ykbgonder@gmail.com</a> adresinden bize ulaşabilirsiniz.'>Questions, feedback or requests? Reach us anytime at <a href="mailto:ykbgonder@gmail.com">ykbgonder@gmail.com</a>.</p>
+         data-tr='Soru, geri bildirim veya talepleriniz için dilediğiniz zaman <a href="mailto:ykbgonder@gmail.com">ykbgonder@gmail.com</a> adresinden bize ulaşabilirsiniz.'>Soru, geri bildirim veya talepleriniz için dilediğiniz zaman <a href="mailto:ykbgonder@gmail.com">ykbgonder@gmail.com</a> adresinden bize ulaşabilirsiniz.</p>
     </div>
   </main>
 
@@ -253,9 +361,9 @@
       try { localStorage.setItem('kyrzma-lang', lang); } catch (e) {}
     }
     (function () {
-      var saved = 'en';
-      try { saved = localStorage.getItem('kyrzma-lang') || 'en'; } catch (e) {}
-      if (saved !== 'en' && saved !== 'tr') saved = 'en';
+      var saved = 'tr';
+      try { saved = localStorage.getItem('kyrzma-lang') || 'tr'; } catch (e) {}
+      if (saved !== 'en' && saved !== 'tr') saved = 'tr';
       setLang(saved);
     })();
   </script>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Neden tek dokunuşlu oyunlar yapıyoruz — Kyrzma Studios</title>
+<meta name="description" content="Kyrzma Studios'un stüdyo felsefesi: tek parmak kontroller, kısa oturumlar, çevrimdışı oynanış ve hesapsız oyunlar.">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#050506">
+<link rel="canonical" href="https://onderyekebag.github.io/kyrzma-studios/blog/tek-dokunus/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kyrzma Studios">
+<meta property="og:title" content="Neden tek dokunuşlu oyunlar yapıyoruz">
+<meta property="og:description" content="Kyrzma Studios'un stüdyo felsefesi: tek parmak kontroller, kısa oturumlar, çevrimdışı oynanış ve hesapsız oyunlar.">
+<meta property="og:url" content="https://onderyekebag.github.io/kyrzma-studios/blog/tek-dokunus/">
+<meta property="og:image" content="https://onderyekebag.github.io/kyrzma-studios/assets/banner.jpg">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="article:published_time" content="2026-06-05">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Neden tek dokunuşlu oyunlar yapıyoruz">
+<meta name="twitter:description" content="Kyrzma Studios'un stüdyo felsefesi: tek parmak kontroller, kısa oturumlar, çevrimdışı oynanış ve hesapsız oyunlar.">
+<meta name="twitter:image" content="https://onderyekebag.github.io/kyrzma-studios/assets/banner.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Neden tek dokunuşlu oyunlar yapıyoruz",
+  "description": "Kyrzma Studios'un stüdyo felsefesi: tek parmak kontroller, kısa oturumlar, çevrimdışı oynanış ve hesapsız oyunlar.",
+  "inLanguage": "tr",
+  "datePublished": "2026-06-05",
+  "dateModified": "2026-06-05",
+  "mainEntityOfPage": "https://onderyekebag.github.io/kyrzma-studios/blog/tek-dokunus/",
+  "url": "https://onderyekebag.github.io/kyrzma-studios/blog/tek-dokunus/",
+  "image": "https://onderyekebag.github.io/kyrzma-studios/assets/banner.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Önder Yekebağ",
+    "url": "https://github.com/onderyekebag"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kyrzma Studios",
+    "url": "https://onderyekebag.github.io/kyrzma-studios/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://onderyekebag.github.io/kyrzma-studios/assets/logo.png"
+    }
+  }
+}
+</script>
+<style>
+  :root {
+    --bg: #050506;
+    --surface: #0e0f12;
+    --surface-2: #15161b;
+    --border: #26282f;
+    --border-strong: #3b3e47;
+    --text: #c7cbd4;
+    --muted: #7f838f;
+    --heading: #f3f4f8;
+    --accent: #b9bdc7;
+    --accent-2: #e9ebf1;
+    --link: #e9ebf1;
+    --shadow: 0 10px 40px rgba(0,0,0,0.55);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  header.site {
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  }
+  .header-inner {
+    max-width: 720px; margin: 0 auto; padding: 28px 20px 24px;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-link { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
+  .brand-logo { width: 34px; height: 34px; display: block; flex: none; }
+  .brand-name { font-weight: 700; color: var(--heading); font-size: 16px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .brand-sub { color: var(--muted); font-size: 13px; margin-top: 1px; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .lang-switch { display: inline-flex; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 3px; }
+  .lang-switch button {
+    appearance: none; border: 0; background: transparent; color: var(--muted);
+    font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+    padding: 6px 14px; border-radius: 7px; transition: background .15s, color .15s;
+  }
+  .lang-switch button.active { background: var(--accent); color: #0c0e14; }
+  .lang-switch button:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+  main { padding: 34px 0 10px; }
+  .backlink { margin: 0 0 24px; font-size: 14px; }
+  .backlink a { color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; }
+  .backlink a:hover { color: var(--link); border-bottom-color: var(--border-strong); }
+  h1 { color: var(--heading); font-size: 30px; line-height: 1.2; margin: 0 0 6px; letter-spacing: -0.4px; }
+  .updated { color: var(--muted); font-size: 14px; margin: 0 0 26px; }
+  h2 {
+    color: var(--heading); font-size: 20px; margin: 34px 0 10px; letter-spacing: -0.2px;
+    padding-top: 6px;
+  }
+  p { margin: 0 0 14px; }
+  strong { color: var(--heading); }
+  a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: var(--link); }
+  .lead {
+    background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+    border-radius: 12px; padding: 16px 18px; margin: 0 0 8px; color: var(--text);
+  }
+  hr { border: 0; border-top: 1px solid var(--border); margin: 40px 0 0; }
+  footer.site { padding: 26px 0 40px; text-align: center; color: var(--muted); font-size: 14px; }
+  footer.site .mark { color: var(--heading); font-weight: 600; }
+  footer.site .nav { margin-top: 8px; }
+  footer.site a { color: var(--muted); }
+  footer.site a:hover { color: var(--link); border-bottom-color: transparent; }
+  [hidden] { display: none !important; }
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    h1 { font-size: 25px; }
+    h2 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+  <header class="site">
+    <div class="header-inner">
+      <div class="brand">
+        <a class="brand-link" href="../../" aria-label="Kyrzma Studios">
+          <img class="brand-logo" src="../../assets/logo.png" alt="">
+          <span class="brand-name">Kyrzma Studios</span>
+        </a>
+      </div>
+      <div class="topbar">
+        <div class="brand-sub">Blog</div>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+          <button type="button" id="btn-tr" class="active" onclick="setLang('tr')">TR</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <p class="backlink"><a href="../../#blog" data-en="← Back to the blog" data-tr="← Bloga dön">← Bloga dön</a></p>
+
+      <div id="lang-tr">
+        <article>
+          <h1>Neden tek dokunuşlu oyunlar yapıyoruz</h1>
+          <p class="updated">5 Haziran 2026</p>
+          <p class="lead">Yaptığımız her oyunun ortak bir noktası var: tek parmakla oynanıyor. Bu bir pazarlama cümlesi değil, işe başlarken kendimize koyduğumuz bir kısıt. Bu yazıda bu kısıtı neden bilerek seçtiğimizi anlatmak istedik.</p>
+          <h2>Telefon, masaüstü değil</h2>
+          <p>Bir mobil oyun çoğu zaman ideal koşullarda oynanmıyor. Oyuncu ayakta, telefon tek elde, dikkat bölünmüş; oyun bir kuyrukta ya da iki iş arasında açılıyor. Sanal joystick ve ekranın köşelerine serpiştirilmiş butonlar, masaüstü alışkanlıklarını dokunmatik ekrana taşımaya çalışır ve bu koşullarda insanı hızla yorar. Biz ters yönden gidiyoruz: kontrol şemasını telefonun gerçekte nasıl tutulduğuna ve kullanıldığına göre kuruyoruz. Tek parmak, telefonun doğal tutuşuyla uyumlu; oyun, başparmağın rahat ulaştığı yerde oynanabilmeli.</p>
+          <h2>Kısıt, tasarımı netleştirir</h2>
+          <p>Girdi tek olunca derinliği kontrol şemasından çıkaramazsınız; kurallardan çıkarmak zorundasınız. Roadloom'da parmağınız yalnızca yol parçası taşır, ama hangi parçayı nereye ve ne zaman koyacağınız oyunun tamamıdır. Perisar'da tek girdi basılı tutmak ve bırakmaktır; bütün gerilim bu iki durumun arasında yaşanır. Tek dokunuş bizi her mekaniği aynı soruyla sınamaya zorluyor: bu gerçekten gerekli mi? Cevabını savunamadığımız her şey eleniyor.</p>
+          <h2>Kısa oturumlar</h2>
+          <p>Oyunlarımızda bir tur ya da bölüm birkaç dakika sürer. Bunun nedeni oyuncunun vaktine saygı: telefon her an cebe girebilmeli ve oyun bunu cezalandırmamalı. Kısa oturum, tasarımı da disipline ediyor; oyunun iyi anı yarım saat sonra değil, ilk dakikanın içinde olmak zorunda. Şişirilmiş zorunlu bölümlere, atlanamayan aralara, bekleme sayaçlarına yer vermiyoruz.</p>
+          <h2>Çevrimdışı, çünkü bağlantı bir varsayım</h2>
+          <p>Oyunlarımız internet olmadan çalışır. Metroda, uçakta, çekimin zayıf olduğu yerde oyun aynı oyundur. Bu, teknik bir ayrıntıdan fazlası: oyun bir sunucuya bağımlı olmayınca oturum anında başlar, karşınıza bağlantı hatası diye bir ekran çıkmaz ve oyunun ömrü bizim bir sunucuyu açık tutmamıza bağlı olmaz.</p>
+          <h2>Hesap yok</h2>
+          <p>Oyunlarımız e-posta istemez, şifre sormaz, kayıt ekranı göstermez. İlerleme cihazda durur. Bunun bir bedeli olduğunu biliyoruz: cihazlar arası senkronizasyon sunmuyoruz. Karşılığında oyuncuyla aramızdaki ilişki tek bir şey üzerinden kuruluyor: oyunun kendisi. İndirirsiniz, oynarsınız; sizden istediğimiz başka bir şey yok.</p>
+          <h2>Bedelleriyle birlikte</h2>
+          <p>Bu ilkeler bazı kapıları kapatıyor. Tek dokunuşla anlamlı olmayan türlere girmiyoruz; çevrimiçi altyapı gerektiren fikirleri eliyoruz. Küçük ve bağımsız bir stüdyo için bu bir kayıp değil, odak. Az sayıda oyunu, üzerinde uzun süre çalışarak yapmayı tercih ediyoruz.</p>
+          <p>Bu felsefenin oyunlara tek tek nasıl yansıdığını önümüzdeki yazılarda anlatacağız: Roadloom'un yol üreteci, LANTERNFALL'un ışık-ses saklambacı, Perisar'ın yörünge kontrolü ve üzerinde çalıştığımız yeni oyun Umbra.</p>
+        </article>
+      </div>
+
+      <div id="lang-en" hidden>
+        <article>
+          <h1>Why we make one-touch games</h1>
+          <p class="updated">June 5, 2026</p>
+          <p class="lead">Every game we make shares one trait: it is played with a single finger. That is not a marketing line; it is a constraint we set for ourselves before work begins. In this post we want to explain why we chose it deliberately.</p>
+          <h2>A phone, not a desktop</h2>
+          <p>A mobile game is rarely played under ideal conditions. The player is standing, the phone is in one hand, attention is split; the game gets opened in a queue or between two tasks. Virtual joysticks and buttons scattered across the corners of the screen try to carry desktop habits onto a touchscreen, and under these conditions they tire you quickly. We go the other way: we build the control scheme around how a phone is actually held and used. One finger fits the phone's natural grip; the game should be playable wherever the thumb comfortably reaches.</p>
+          <h2>Constraints clarify design</h2>
+          <p>With a single input, depth cannot come from the control scheme; it has to come from the rules. In Roadloom your finger only carries road pieces, yet which piece you place where and when is the whole game. In Perisar the only input is holding and releasing; all the tension lives between those two states. One touch forces us to test every mechanic against the same question: is this truly necessary? Anything we cannot defend gets cut.</p>
+          <h2>Short sessions</h2>
+          <p>A run or a level in our games lasts a few minutes. The reason is respect for the player's time: the phone must be able to go back into the pocket at any moment, and the game must not punish that. Short sessions also discipline the design; the good moment of the game has to happen within the first minute, not half an hour in. We leave no room for padded mandatory sections, unskippable breaks or waiting timers.</p>
+          <h2>Offline, because connectivity is an assumption</h2>
+          <p>Our games work without the internet. On the subway, on a plane, anywhere the signal is weak, the game is the same game. This is more than a technical detail: when a game does not depend on a server, sessions start instantly, no connection-error screen ever appears, and the game's lifespan does not depend on us keeping a server alive.</p>
+          <h2>No accounts</h2>
+          <p>Our games do not ask for an email, a password or a sign-up screen. Progress lives on the device. We know this has a cost: we do not offer cross-device sync. In return, our relationship with the player is built on exactly one thing: the game itself. You download it, you play it; we ask nothing else of you.</p>
+          <h2>Together with its costs</h2>
+          <p>These principles close some doors. We stay away from genres that make no sense with one touch; we cut ideas that require online infrastructure. For a small independent studio this is not a loss — it is focus. We prefer to make few games and work on them for a long time.</p>
+          <p>In the coming posts we will go through how this philosophy shows up in each game: Roadloom's road generator, LANTERNFALL's light-and-sound hide-and-seek, Perisar's orbit control, and Umbra, the new game we are working on.</p>
+        </article>
+      </div>
+
+    </div>
+  </main>
+
+  <hr>
+  <footer class="site">
+    <span class="mark">© 2024–2026 Kyrzma Studios</span>
+    <div class="nav">
+      <a href="../../" data-en="Home" data-tr="Ana Sayfa">Ana Sayfa</a> &nbsp;·&nbsp;
+      <a href="../../privacy/" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Gizlilik Politikası</a> &nbsp;·&nbsp;
+      <a href="../../terms/" data-en="Terms of Service" data-tr="Kullanım Koşulları">Kullanım Koşulları</a>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      var isEn = lang === 'en';
+      document.getElementById('lang-en').hidden = !isEn;
+      document.getElementById('lang-tr').hidden = isEn;
+      document.getElementById('btn-en').classList.toggle('active', isEn);
+      document.getElementById('btn-tr').classList.toggle('active', !isEn);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-en]').forEach(function (el) {
+        el.textContent = el.getAttribute(isEn ? 'data-en' : 'data-tr');
+      });
+      try { localStorage.setItem('kyrzma-lang', lang); } catch (e) {}
+    }
+    (function () {
+      var saved = 'tr';
+      try { saved = localStorage.getItem('kyrzma-lang') || 'tr'; } catch (e) {}
+      if (saved !== 'en' && saved !== 'tr') saved = 'tr';
+      setLang(saved);
+    })();
+  </script>
+</body>
+</html>

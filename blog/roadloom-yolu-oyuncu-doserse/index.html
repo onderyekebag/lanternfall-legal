@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Roadloom: yolu oyuncu döşerse — Kyrzma Studios</title>
+<meta name="description" content="Roadloom'un geliştirme notları: önce çözümü üreten yol üreteci, el garantisi, gece-gündüz döngüsü ve fırtına şişesi.">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#050506">
+<link rel="canonical" href="https://onderyekebag.github.io/kyrzma-studios/blog/roadloom-yolu-oyuncu-doserse/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kyrzma Studios">
+<meta property="og:title" content="Roadloom: yolu oyuncu döşerse">
+<meta property="og:description" content="Roadloom'un geliştirme notları: önce çözümü üreten yol üreteci, el garantisi, gece-gündüz döngüsü ve fırtına şişesi.">
+<meta property="og:url" content="https://onderyekebag.github.io/kyrzma-studios/blog/roadloom-yolu-oyuncu-doserse/">
+<meta property="og:image" content="https://onderyekebag.github.io/kyrzma-studios/assets/banner.jpg">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="article:published_time" content="2026-06-12">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Roadloom: yolu oyuncu döşerse">
+<meta name="twitter:description" content="Roadloom'un geliştirme notları: önce çözümü üreten yol üreteci, el garantisi, gece-gündüz döngüsü ve fırtına şişesi.">
+<meta name="twitter:image" content="https://onderyekebag.github.io/kyrzma-studios/assets/banner.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Roadloom: yolu oyuncu döşerse",
+  "description": "Roadloom'un geliştirme notları: önce çözümü üreten yol üreteci, el garantisi, gece-gündüz döngüsü ve fırtına şişesi.",
+  "inLanguage": "tr",
+  "datePublished": "2026-06-12",
+  "dateModified": "2026-06-12",
+  "mainEntityOfPage": "https://onderyekebag.github.io/kyrzma-studios/blog/roadloom-yolu-oyuncu-doserse/",
+  "url": "https://onderyekebag.github.io/kyrzma-studios/blog/roadloom-yolu-oyuncu-doserse/",
+  "image": "https://onderyekebag.github.io/kyrzma-studios/assets/banner.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Önder Yekebağ",
+    "url": "https://github.com/onderyekebag"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kyrzma Studios",
+    "url": "https://onderyekebag.github.io/kyrzma-studios/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://onderyekebag.github.io/kyrzma-studios/assets/logo.png"
+    }
+  }
+}
+</script>
+<style>
+  :root {
+    --bg: #050506;
+    --surface: #0e0f12;
+    --surface-2: #15161b;
+    --border: #26282f;
+    --border-strong: #3b3e47;
+    --text: #c7cbd4;
+    --muted: #7f838f;
+    --heading: #f3f4f8;
+    --accent: #b9bdc7;
+    --accent-2: #e9ebf1;
+    --link: #e9ebf1;
+    --shadow: 0 10px 40px rgba(0,0,0,0.55);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  header.site {
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  }
+  .header-inner {
+    max-width: 720px; margin: 0 auto; padding: 28px 20px 24px;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-link { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
+  .brand-logo { width: 34px; height: 34px; display: block; flex: none; }
+  .brand-name { font-weight: 700; color: var(--heading); font-size: 16px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .brand-sub { color: var(--muted); font-size: 13px; margin-top: 1px; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .lang-switch { display: inline-flex; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 3px; }
+  .lang-switch button {
+    appearance: none; border: 0; background: transparent; color: var(--muted);
+    font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+    padding: 6px 14px; border-radius: 7px; transition: background .15s, color .15s;
+  }
+  .lang-switch button.active { background: var(--accent); color: #0c0e14; }
+  .lang-switch button:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+  main { padding: 34px 0 10px; }
+  .backlink { margin: 0 0 24px; font-size: 14px; }
+  .backlink a { color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; }
+  .backlink a:hover { color: var(--link); border-bottom-color: var(--border-strong); }
+  h1 { color: var(--heading); font-size: 30px; line-height: 1.2; margin: 0 0 6px; letter-spacing: -0.4px; }
+  .updated { color: var(--muted); font-size: 14px; margin: 0 0 26px; }
+  h2 {
+    color: var(--heading); font-size: 20px; margin: 34px 0 10px; letter-spacing: -0.2px;
+    padding-top: 6px;
+  }
+  p { margin: 0 0 14px; }
+  strong { color: var(--heading); }
+  a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: var(--link); }
+  .lead {
+    background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+    border-radius: 12px; padding: 16px 18px; margin: 0 0 8px; color: var(--text);
+  }
+  hr { border: 0; border-top: 1px solid var(--border); margin: 40px 0 0; }
+  footer.site { padding: 26px 0 40px; text-align: center; color: var(--muted); font-size: 14px; }
+  footer.site .mark { color: var(--heading); font-weight: 600; }
+  footer.site .nav { margin-top: 8px; }
+  footer.site a { color: var(--muted); }
+  footer.site a:hover { color: var(--link); border-bottom-color: transparent; }
+  [hidden] { display: none !important; }
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    h1 { font-size: 25px; }
+    h2 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+  <header class="site">
+    <div class="header-inner">
+      <div class="brand">
+        <a class="brand-link" href="../../" aria-label="Kyrzma Studios">
+          <img class="brand-logo" src="../../assets/logo.png" alt="">
+          <span class="brand-name">Kyrzma Studios</span>
+        </a>
+      </div>
+      <div class="topbar">
+        <div class="brand-sub">Blog</div>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+          <button type="button" id="btn-tr" class="active" onclick="setLang('tr')">TR</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <p class="backlink"><a href="../../#blog" data-en="← Back to the blog" data-tr="← Bloga dön">← Bloga dön</a></p>
+
+      <div id="lang-tr">
+        <article>
+          <h1>Roadloom: yolu oyuncu döşerse</h1>
+          <p class="updated">12 Haziran 2026</p>
+          <p class="lead">Roadloom'un fikri tek cümleye sığıyor: koşucu kendi başına koşar; yolu siz döşersiniz. Elinizde üç yol parçası, önünüzde boşluklarla dolu bir arazi var. Parçayı sürükleyip boşluğa bırakırsınız, koşucu üzerinden geçer, eliniz yeniden dolar.</p>
+          <h2>Refleks değil, yerleştirme</h2>
+          <p>Klasik koşu oyunlarında oyuncu karakteri kontrol eder: zıpla, kay, dön. Roadloom'da karakter kendi işini görür; sizin işiniz zemindir. Bu küçük yer değişikliği türü kaydırıyor: oyun bir refleks testi olmaktan çıkıp bir yerleştirme bulmacasına dönüşüyor. Gözünüz koşucunun üzerinde değil, birkaç boşluk ilerideki arazide geziyor. İyi bir Roadloom oyuncusunu izlerken telaş görmezsiniz; önceden düşünmüş, sakin bir el görürsünüz.</p>
+          <h2>Önce çözüm, sonra arazi</h2>
+          <p>Geliştirme sürecindeki en önemli karar üreteçle ilgiliydi. Rastgele arazi üretip rastgele parça dağıtırsanız er ya da geç çözümsüz bir an doğar: boşluk oradadır ama onu kapatacak parça elde yoktur. Oyuncu bunun matematiğini bilmez ama hissini çok iyi bilir: oyun bana haksızlık etti. Bunu kabul edilemez bulduk ve üreteci tersten kurduk. Üreteç önce çözümü üretiyor: hangi parçaların hangi sırayla döşeneceğini. Araziyi bu çözümün etrafına sonradan inşa ediyor. Böylece her boşluğun geçilebilir olduğu, üretildiği anda kanıtlı oluyor; şansa ve umuda yer kalmıyor.</p>
+          <h2>El garantisi</h2>
+          <p>Çözümün var olması yetmez; oyuncunun eline ulaşması da gerekir. Parça dağıtımı, o an gereken parçanın üç slottan birinde bulunmasını garanti edecek şekilde çalışıyor. Bunun sonucu şu: Roadloom'da her başarısızlık bir yerleştirme ya da zamanlama hatasıdır, asla kötü şans değildir. Zorluğu artırmanın dürüst tek yolunun bu olduğunu düşünüyoruz; oyuncu sisteme güvenmezse zorluğu da kabul etmez.</p>
+          <h2>Gece ve gündüz</h2>
+          <p>Koşu uzadıkça ışık değişiyor; aynı arazi gündüzün ve gecenin içinden farklı görünüyor. Gece-gündüz döngüsü uzun koşulara zaman hissi veriyor: ne kadar süredir yolda olduğunuzu saatten değil, gökyüzünden anlıyorsunuz.</p>
+          <h2>Fırtına şişesi</h2>
+          <p>En sevdiğimiz eklerden biri fırtına şişesi. Kısa bir süreliğine koşucu çok hızlanır — o hızda elle parça döşemek mümkün olmazdı. Bu yüzden fırtına boyunca oyun kendi kuralını değiştirir: boşlukları altın bir hayalet yol doldurur. Oyuncu birkaç saniyeliğine döşeme işinden kurtulur ve hızın kendisini izler. Bir güçlendirme tasarlarken sorduğumuz soru şuydu: bu güç, oyunun temel işini geçici olarak nasıl dönüştürür? Fırtına şişesinin cevabı net: işi tamamen devralır ve oyuncuya nefes aldırır.</p>
+          <h2>Küçük şeyler</h2>
+          <p>Zıplama ve engeller, yerleştirme kararlarına ikinci bir katman ekliyor; karakter marketi ise koşulara küçük bir amaç veriyor. Bunların hiçbiri çekirdeği değiştirmiyor. Çekirdek hep aynı: elinde üç parça, önünde bir boşluk ve yaklaşan bir koşucu.</p>
+          <p>Yolu oyuncuya vermek, koşu türü hakkında bildiğimizi sandığımız şeylerin çoğunu yeniden düşünmemize neden oldu. Roadloom Google Play'de; ana sayfadaki bağlantıdan ulaşabilirsiniz.</p>
+        </article>
+      </div>
+
+      <div id="lang-en" hidden>
+        <article>
+          <h1>Roadloom: when the player lays the road</h1>
+          <p class="updated">June 12, 2026</p>
+          <p class="lead">The idea of Roadloom fits in one sentence: the runner runs on its own; you lay the road. You hold three road pieces, and ahead lies terrain full of gaps. You drag a piece into a gap, the runner crosses it, and your hand refills.</p>
+          <h2>Placement, not reflexes</h2>
+          <p>In classic runners the player controls the character: jump, slide, turn. In Roadloom the character takes care of itself; your job is the ground. This small swap shifts the genre: the game stops being a reflex test and becomes a placement puzzle. Your eyes are not on the runner but on the terrain a few gaps ahead. Watching a good Roadloom player, you see no panic — you see a calm hand that has thought ahead.</p>
+          <h2>Solution first, then terrain</h2>
+          <p>The most important decision in development concerned the generator. If you generate random terrain and deal random pieces, sooner or later an unsolvable moment appears: the gap is there, but the piece that closes it is not in your hand. The player does not know the math of this, but knows the feeling very well: the game cheated me. We found that unacceptable and built the generator backwards. It first produces the solution — which pieces will be laid in which order — and then builds the terrain around that solution. This way, every gap is provably passable at the moment it is generated; nothing is left to luck or hope.</p>
+          <h2>The hand guarantee</h2>
+          <p>A solution existing is not enough; it also has to reach the player's hand. Piece dealing works so that the piece needed at that moment is guaranteed to be in one of the three slots. The result: in Roadloom every failure is a placement or timing mistake, never bad luck. We believe this is the only honest way to raise difficulty; if players do not trust the system, they will not accept the challenge either.</p>
+          <h2>Day and night</h2>
+          <p>As the run goes on, the light changes; the same terrain looks different through day and night. The cycle gives long runs a sense of time: you can tell how long you have been on the road from the sky, not from a clock.</p>
+          <h2>The storm bottle</h2>
+          <p>One of our favorite additions is the storm bottle. For a short while the runner speeds up enormously — laying pieces by hand would be impossible at that speed. So for the duration of the storm the game changes its own rule: gaps are filled by a golden ghost road. For a few seconds the player is relieved of the laying work and simply watches the speed. The question we asked while designing a power-up was: how does this power temporarily transform the game's core job? The storm bottle's answer is clear: it takes over the job entirely and lets the player breathe.</p>
+          <h2>The small things</h2>
+          <p>Jumps and obstacles add a second layer to placement decisions; the character shop gives runs a small goal. None of it changes the core. The core is always the same: three pieces in your hand, a gap ahead, and a runner approaching.</p>
+          <p>Handing the road to the player made us rethink most of what we thought we knew about the genre. Roadloom is on Google Play; you can reach it from the link on our home page.</p>
+        </article>
+      </div>
+
+    </div>
+  </main>
+
+  <hr>
+  <footer class="site">
+    <span class="mark">© 2024–2026 Kyrzma Studios</span>
+    <div class="nav">
+      <a href="../../" data-en="Home" data-tr="Ana Sayfa">Ana Sayfa</a> &nbsp;·&nbsp;
+      <a href="../../privacy/" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Gizlilik Politikası</a> &nbsp;·&nbsp;
+      <a href="../../terms/" data-en="Terms of Service" data-tr="Kullanım Koşulları">Kullanım Koşulları</a>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      var isEn = lang === 'en';
+      document.getElementById('lang-en').hidden = !isEn;
+      document.getElementById('lang-tr').hidden = isEn;
+      document.getElementById('btn-en').classList.toggle('active', isEn);
+      document.getElementById('btn-tr').classList.toggle('active', !isEn);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-en]').forEach(function (el) {
+        el.textContent = el.getAttribute(isEn ? 'data-en' : 'data-tr');
+      });
+      try { localStorage.setItem('kyrzma-lang', lang); } catch (e) {}
+    }
+    (function () {
+      var saved = 'tr';
+      try { saved = localStorage.getItem('kyrzma-lang') || 'tr'; } catch (e) {}
+      if (saved !== 'en' && saved !== 'tr') saved = 'tr';
+      setLang(saved);
+    })();
+  </script>
+</body>
+</html>

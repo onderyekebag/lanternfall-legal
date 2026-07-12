@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Perisar: kara deliğe iniş — Kyrzma Studios</title>
+<meta name="description" content="Perisar'ın geliştirme notları: tek parmak bas-çek yörünge kontrolü, kristaller, ısı ve avcı, katlara dalış ve tohum numarasıyla deterministik koşular.">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#050506">
+<link rel="canonical" href="https://onderyekebag.github.io/kyrzma-studios/blog/perisar-kara-delige-inis/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kyrzma Studios">
+<meta property="og:title" content="Perisar: kara deliğe iniş">
+<meta property="og:description" content="Perisar'ın geliştirme notları: tek parmak bas-çek yörünge kontrolü, kristaller, ısı ve avcı, katlara dalış ve tohum numarasıyla deterministik koşular.">
+<meta property="og:url" content="https://onderyekebag.github.io/kyrzma-studios/blog/perisar-kara-delige-inis/">
+<meta property="og:image" content="https://onderyekebag.github.io/kyrzma-studios/assets/banner.jpg">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="article:published_time" content="2026-06-26">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Perisar: kara deliğe iniş">
+<meta name="twitter:description" content="Perisar'ın geliştirme notları: tek parmak bas-çek yörünge kontrolü, kristaller, ısı ve avcı, katlara dalış ve tohum numarasıyla deterministik koşular.">
+<meta name="twitter:image" content="https://onderyekebag.github.io/kyrzma-studios/assets/banner.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Perisar: kara deliğe iniş",
+  "description": "Perisar'ın geliştirme notları: tek parmak bas-çek yörünge kontrolü, kristaller, ısı ve avcı, katlara dalış ve tohum numarasıyla deterministik koşular.",
+  "inLanguage": "tr",
+  "datePublished": "2026-06-26",
+  "dateModified": "2026-06-26",
+  "mainEntityOfPage": "https://onderyekebag.github.io/kyrzma-studios/blog/perisar-kara-delige-inis/",
+  "url": "https://onderyekebag.github.io/kyrzma-studios/blog/perisar-kara-delige-inis/",
+  "image": "https://onderyekebag.github.io/kyrzma-studios/assets/banner.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Önder Yekebağ",
+    "url": "https://github.com/onderyekebag"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kyrzma Studios",
+    "url": "https://onderyekebag.github.io/kyrzma-studios/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://onderyekebag.github.io/kyrzma-studios/assets/logo.png"
+    }
+  }
+}
+</script>
+<style>
+  :root {
+    --bg: #050506;
+    --surface: #0e0f12;
+    --surface-2: #15161b;
+    --border: #26282f;
+    --border-strong: #3b3e47;
+    --text: #c7cbd4;
+    --muted: #7f838f;
+    --heading: #f3f4f8;
+    --accent: #b9bdc7;
+    --accent-2: #e9ebf1;
+    --link: #e9ebf1;
+    --shadow: 0 10px 40px rgba(0,0,0,0.55);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  header.site {
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  }
+  .header-inner {
+    max-width: 720px; margin: 0 auto; padding: 28px 20px 24px;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-link { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
+  .brand-logo { width: 34px; height: 34px; display: block; flex: none; }
+  .brand-name { font-weight: 700; color: var(--heading); font-size: 16px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .brand-sub { color: var(--muted); font-size: 13px; margin-top: 1px; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .lang-switch { display: inline-flex; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 3px; }
+  .lang-switch button {
+    appearance: none; border: 0; background: transparent; color: var(--muted);
+    font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+    padding: 6px 14px; border-radius: 7px; transition: background .15s, color .15s;
+  }
+  .lang-switch button.active { background: var(--accent); color: #0c0e14; }
+  .lang-switch button:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+  main { padding: 34px 0 10px; }
+  .backlink { margin: 0 0 24px; font-size: 14px; }
+  .backlink a { color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; }
+  .backlink a:hover { color: var(--link); border-bottom-color: var(--border-strong); }
+  h1 { color: var(--heading); font-size: 30px; line-height: 1.2; margin: 0 0 6px; letter-spacing: -0.4px; }
+  .updated { color: var(--muted); font-size: 14px; margin: 0 0 26px; }
+  h2 {
+    color: var(--heading); font-size: 20px; margin: 34px 0 10px; letter-spacing: -0.2px;
+    padding-top: 6px;
+  }
+  p { margin: 0 0 14px; }
+  strong { color: var(--heading); }
+  a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: var(--link); }
+  .lead {
+    background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+    border-radius: 12px; padding: 16px 18px; margin: 0 0 8px; color: var(--text);
+  }
+  hr { border: 0; border-top: 1px solid var(--border); margin: 40px 0 0; }
+  footer.site { padding: 26px 0 40px; text-align: center; color: var(--muted); font-size: 14px; }
+  footer.site .mark { color: var(--heading); font-weight: 600; }
+  footer.site .nav { margin-top: 8px; }
+  footer.site a { color: var(--muted); }
+  footer.site a:hover { color: var(--link); border-bottom-color: transparent; }
+  [hidden] { display: none !important; }
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    h1 { font-size: 25px; }
+    h2 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+  <header class="site">
+    <div class="header-inner">
+      <div class="brand">
+        <a class="brand-link" href="../../" aria-label="Kyrzma Studios">
+          <img class="brand-logo" src="../../assets/logo.png" alt="">
+          <span class="brand-name">Kyrzma Studios</span>
+        </a>
+      </div>
+      <div class="topbar">
+        <div class="brand-sub">Blog</div>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+          <button type="button" id="btn-tr" class="active" onclick="setLang('tr')">TR</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <p class="backlink"><a href="../../#blog" data-en="← Back to the blog" data-tr="← Bloga dön">← Bloga dön</a></p>
+
+      <div id="lang-tr">
+        <article>
+          <h1>Perisar: kara deliğe iniş</h1>
+          <p class="updated">26 Haziran 2026</p>
+          <p class="lead">Perisar'ın sloganı "Kara deliğe iniş". Bir kara deliğin yörüngesindesiniz ve oyunun tamamı tek parmakla oynanıyor: basmak ve bırakmak. Bu yazı, bu kadar az girdiyle nasıl gerilim kurmaya çalıştığımız üzerine.</p>
+          <h2>Bas ve çek</h2>
+          <p>Kontrol şemasının tamamı şu: parmağınız ekrandayken bir kuvvet devrededir, çektiğinizde kaybolur. Yörüngeniz bu iki durum arasında şekillenir. Direksiyon yok, buton yok, nişangah yok. İlk denemede herkes anlar; ustalaşmak ise uzun sürer, çünkü yörüngede hiçbir kararın sonucu anında gelmez. Şimdi bastığınız parmağın bedelini ya da ödülünü bir sonraki geçişte görürsünüz. Bu gecikme, oyunun gerilim kaynağıdır: hata sizi yapıldığı anda değil, yaklaşırken korkutur. Bu şemayı seçmemizin bir nedeni de dürüstlük: ekranda gizli bir buton, oyuncunun bilmediği bir girdi yok. Gördüğünüz her şey, tek parmağınızla yaptıklarınızın sonucudur.</p>
+          <h2>Kristal, ısı, avcı</h2>
+          <p>İniş boyunca kristal toplarsınız; sizi hareket halinde tutan iki tehdit vardır: ısı ve avcı. Isı çevresel bir baskıdır — ondan uzak durmayı öğrenirsiniz. Avcı ise kişiseldir: peşinizdedir ve yörüngenizi ona göre kurmanız gerekir. Toplamak, kaçınmak ve kaçmak aynı tek parmakla yapılır; oyunun bütün kararları aynı girdiye sıkışır ve tam da bu yüzden her karar ağırlaşır.</p>
+          <h2>Katlara dalmak</h2>
+          <p>İniş katmanlar halindedir: ilerlemek istiyorsanız bir sonraki kata dalmanız gerekir ve her kat sizi kara deliğe biraz daha yaklaştırır. Oyunun adındaki iniş bir metafor değil, yapının kendisidir. Derine inmek isteğe bağlı bir cesaret gösterisi değildir; oyunun tek yönüdür. Soru hiçbir zaman inip inmeyeceğiniz değil, ne zaman ve hangi yörüngeyle ineceğinizdir.</p>
+          <h2>Tohum numarası: aynı koşu, yeniden</h2>
+          <p>Perisar'da her koşu bir tohum numarasından üretilir. Aynı tohum, aynı koşu demektir: aynı düzen, aynı fırsatlar, aynı tehditler. Bunun bize iki somut faydası var. Birincisi geliştirme tarafında: bir hata bulduğumuzda koşuyu birebir yeniden üretebiliyoruz; bazen oluyor diye bir hata kategorisi kalmıyor. İkincisi adalet tarafında: koşunun zorluğu, anlık rastgeleliğin insafına kalmıyor. Determinizm görünmez bir özelliktir; oyuncu onu bir menüde görmez ama güven olarak hisseder.</p>
+          <h2>Gerilimi ayarlamak</h2>
+          <p>Tek girdili bir oyunda zorluk kaba kuvvetle artırılamaz; ekranı kalabalıklaştırmak kontrolü değil, şansı sınar. Bizim elimizdeki ayar kadranları daha inceydi: kristallerin yerleşimi, ısının baskısı, avcının varlığı ve katların derinliği. Gerilim bu dördünün dengesinden çıkıyor; oyuncunun parmağı ise baştan sona aynı iki şeyi yapıyor: basmak ve bırakmak.</p>
+          <h2>Görünenden azı dosya</h2>
+          <p>Perisar'ın görsel ve işitsel içeriği dosyalardan değil, koddan üretiliyor; indirme bu yüzden küçük kalıyor ve oyun tümüyle çevrimdışı çalışıyor.</p>
+          <p>Perisar Google Play'de. İnişte görüşürüz.</p>
+        </article>
+      </div>
+
+      <div id="lang-en" hidden>
+        <article>
+          <h1>Perisar: descent into a black hole</h1>
+          <p class="updated">June 26, 2026</p>
+          <p class="lead">Perisar's tagline is "descent into a black hole". You are in orbit around a black hole, and the whole game is played with one finger: press and release. This post is about how we tried to build tension out of so little input.</p>
+          <h2>Press and release</h2>
+          <p>The entire control scheme is this: while your finger is on the screen a force is active; when you lift it, it is gone. Your orbit takes shape between those two states. No steering, no buttons, no crosshair. Everyone understands it on the first try; mastering it takes long, because in orbit no decision pays off instantly. The press you make now shows its cost or reward on the next pass. That delay is the game's source of tension: a mistake frightens you not at the moment it is made, but on the approach. One more reason we chose this scheme is honesty: there is no hidden button, no input the player does not know about. Everything you see is the consequence of what your single finger did.</p>
+          <h2>Crystals, heat, the hunter</h2>
+          <p>Throughout the descent you collect crystals; two threats keep you moving: the heat and the hunter. The heat is an environmental pressure — you learn to keep your distance. The hunter is personal: it is after you, and you have to shape your orbit around it. Collecting, avoiding and escaping are all done with the same single finger; every decision in the game is squeezed into the same input, and precisely because of that, every decision gains weight.</p>
+          <h2>Diving through the layers</h2>
+          <p>The descent is layered: to progress you must dive to the next layer, and every layer brings you a little closer to the black hole. The descent in the game's name is not a metaphor; it is the structure itself. Going deeper is not an optional act of bravado — it is the game's only direction. The question is never whether you will descend, but when, and on what orbit.</p>
+          <h2>The seed number: the same run, again</h2>
+          <p>In Perisar every run is generated from a seed number. Same seed, same run: same layout, same opportunities, same threats. This gives us two concrete benefits. First, on the development side: when we find a bug we can reproduce the run exactly; the it-happens-sometimes category of bug disappears. Second, on the fairness side: a run's difficulty is not at the mercy of moment-to-moment randomness. Determinism is an invisible feature; players never see it in a menu, but they feel it as trust.</p>
+          <h2>Tuning the tension</h2>
+          <p>In a single-input game, difficulty cannot be raised by brute force; crowding the screen tests luck, not control. Our dials were finer: the placement of crystals, the pressure of the heat, the presence of the hunter and the depth of the layers. The tension comes from the balance of those four, while the player's finger keeps doing the same two things: press and release.</p>
+          <h2>Less of what you see is a file</h2>
+          <p>Perisar's visuals and audio are generated from code rather than shipped as files; that keeps the download small and lets the game run fully offline.</p>
+          <p>Perisar is on Google Play. See you on the way down.</p>
+        </article>
+      </div>
+
+    </div>
+  </main>
+
+  <hr>
+  <footer class="site">
+    <span class="mark">© 2024–2026 Kyrzma Studios</span>
+    <div class="nav">
+      <a href="../../" data-en="Home" data-tr="Ana Sayfa">Ana Sayfa</a> &nbsp;·&nbsp;
+      <a href="../../privacy/" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Gizlilik Politikası</a> &nbsp;·&nbsp;
+      <a href="../../terms/" data-en="Terms of Service" data-tr="Kullanım Koşulları">Kullanım Koşulları</a>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      var isEn = lang === 'en';
+      document.getElementById('lang-en').hidden = !isEn;
+      document.getElementById('lang-tr').hidden = isEn;
+      document.getElementById('btn-en').classList.toggle('active', isEn);
+      document.getElementById('btn-tr').classList.toggle('active', !isEn);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-en]').forEach(function (el) {
+        el.textContent = el.getAttribute(isEn ? 'data-en' : 'data-tr');
+      });
+      try { localStorage.setItem('kyrzma-lang', lang); } catch (e) {}
+    }
+    (function () {
+      var saved = 'tr';
+      try { saved = localStorage.getItem('kyrzma-lang') || 'tr'; } catch (e) {}
+      if (saved !== 'en' && saved !== 'tr') saved = 'tr';
+      setLang(saved);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://onderyekebag.github.io/kyrzma-studios/sitemap.xml

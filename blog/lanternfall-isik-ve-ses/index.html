@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>LANTERNFALL: ışık ve sesle saklambaç — Kyrzma Studios</title>
+<meta name="description" content="LANTERNFALL'un geliştirme notları: düşmanların ışığı gördüğü ve sesi duyduğu stealth labirentte fenerin ikili rolü; 20 bölüm, 7 biyom, 3 boss, 11 dil.">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#050506">
+<link rel="canonical" href="https://onderyekebag.github.io/kyrzma-studios/blog/lanternfall-isik-ve-ses/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kyrzma Studios">
+<meta property="og:title" content="LANTERNFALL: ışık ve sesle saklambaç">
+<meta property="og:description" content="LANTERNFALL'un geliştirme notları: düşmanların ışığı gördüğü ve sesi duyduğu stealth labirentte fenerin ikili rolü; 20 bölüm, 7 biyom, 3 boss, 11 dil.">
+<meta property="og:url" content="https://onderyekebag.github.io/kyrzma-studios/blog/lanternfall-isik-ve-ses/">
+<meta property="og:image" content="https://onderyekebag.github.io/kyrzma-studios/assets/banner.jpg">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="article:published_time" content="2026-06-19">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LANTERNFALL: ışık ve sesle saklambaç">
+<meta name="twitter:description" content="LANTERNFALL'un geliştirme notları: düşmanların ışığı gördüğü ve sesi duyduğu stealth labirentte fenerin ikili rolü; 20 bölüm, 7 biyom, 3 boss, 11 dil.">
+<meta name="twitter:image" content="https://onderyekebag.github.io/kyrzma-studios/assets/banner.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "LANTERNFALL: ışık ve sesle saklambaç",
+  "description": "LANTERNFALL'un geliştirme notları: düşmanların ışığı gördüğü ve sesi duyduğu stealth labirentte fenerin ikili rolü; 20 bölüm, 7 biyom, 3 boss, 11 dil.",
+  "inLanguage": "tr",
+  "datePublished": "2026-06-19",
+  "dateModified": "2026-06-19",
+  "mainEntityOfPage": "https://onderyekebag.github.io/kyrzma-studios/blog/lanternfall-isik-ve-ses/",
+  "url": "https://onderyekebag.github.io/kyrzma-studios/blog/lanternfall-isik-ve-ses/",
+  "image": "https://onderyekebag.github.io/kyrzma-studios/assets/banner.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Önder Yekebağ",
+    "url": "https://github.com/onderyekebag"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kyrzma Studios",
+    "url": "https://onderyekebag.github.io/kyrzma-studios/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://onderyekebag.github.io/kyrzma-studios/assets/logo.png"
+    }
+  }
+}
+</script>
+<style>
+  :root {
+    --bg: #050506;
+    --surface: #0e0f12;
+    --surface-2: #15161b;
+    --border: #26282f;
+    --border-strong: #3b3e47;
+    --text: #c7cbd4;
+    --muted: #7f838f;
+    --heading: #f3f4f8;
+    --accent: #b9bdc7;
+    --accent-2: #e9ebf1;
+    --link: #e9ebf1;
+    --shadow: 0 10px 40px rgba(0,0,0,0.55);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  header.site {
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  }
+  .header-inner {
+    max-width: 720px; margin: 0 auto; padding: 28px 20px 24px;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-link { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
+  .brand-logo { width: 34px; height: 34px; display: block; flex: none; }
+  .brand-name { font-weight: 700; color: var(--heading); font-size: 16px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .brand-sub { color: var(--muted); font-size: 13px; margin-top: 1px; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .lang-switch { display: inline-flex; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 3px; }
+  .lang-switch button {
+    appearance: none; border: 0; background: transparent; color: var(--muted);
+    font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+    padding: 6px 14px; border-radius: 7px; transition: background .15s, color .15s;
+  }
+  .lang-switch button.active { background: var(--accent); color: #0c0e14; }
+  .lang-switch button:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+  main { padding: 34px 0 10px; }
+  .backlink { margin: 0 0 24px; font-size: 14px; }
+  .backlink a { color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; }
+  .backlink a:hover { color: var(--link); border-bottom-color: var(--border-strong); }
+  h1 { color: var(--heading); font-size: 30px; line-height: 1.2; margin: 0 0 6px; letter-spacing: -0.4px; }
+  .updated { color: var(--muted); font-size: 14px; margin: 0 0 26px; }
+  h2 {
+    color: var(--heading); font-size: 20px; margin: 34px 0 10px; letter-spacing: -0.2px;
+    padding-top: 6px;
+  }
+  p { margin: 0 0 14px; }
+  strong { color: var(--heading); }
+  a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: var(--link); }
+  .lead {
+    background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+    border-radius: 12px; padding: 16px 18px; margin: 0 0 8px; color: var(--text);
+  }
+  hr { border: 0; border-top: 1px solid var(--border); margin: 40px 0 0; }
+  footer.site { padding: 26px 0 40px; text-align: center; color: var(--muted); font-size: 14px; }
+  footer.site .mark { color: var(--heading); font-weight: 600; }
+  footer.site .nav { margin-top: 8px; }
+  footer.site a { color: var(--muted); }
+  footer.site a:hover { color: var(--link); border-bottom-color: transparent; }
+  [hidden] { display: none !important; }
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    h1 { font-size: 25px; }
+    h2 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+  <header class="site">
+    <div class="header-inner">
+      <div class="brand">
+        <a class="brand-link" href="../../" aria-label="Kyrzma Studios">
+          <img class="brand-logo" src="../../assets/logo.png" alt="">
+          <span class="brand-name">Kyrzma Studios</span>
+        </a>
+      </div>
+      <div class="topbar">
+        <div class="brand-sub">Blog</div>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+          <button type="button" id="btn-tr" class="active" onclick="setLang('tr')">TR</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <p class="backlink"><a href="../../#blog" data-en="← Back to the blog" data-tr="← Bloga dön">← Bloga dön</a></p>
+
+      <div id="lang-tr">
+        <article>
+          <h1>LANTERNFALL: ışık ve sesle saklambaç</h1>
+          <p class="updated">19 Haziran 2026</p>
+          <p class="lead">LANTERNFALL, yukarıdan bakışlı bir stealth labirent oyunu. Amaç basit görünüyor: fenerinle çıkışa ulaş, yakalanma. İlginç olan, yakalanmanın iki ayrı duyuya bağlı olması: düşmanlar ışığı görür ve sesi duyar.</p>
+          <h2>Fener: araç ve risk</h2>
+          <p>Oyunun merkezindeki takas fenerin kendisidir. Işık olmadan labirenti okumak zorlaşır; ışık varken onu yalnız siz görmezsiniz. Feneri ne zaman ve ne kadar kullanacağınız, oyunun asıl sorusudur. Stealth oyunlarının en iyi anları, oyuncunun güvenlik ile bilgiyi takas ettiği anlardır; LANTERNFALL'da bu takası tek bir nesnede toplamak istedik. Elinizdeki şey aynı anda hem haritanız hem de sizi ele veren izdir.</p>
+          <h2>İki duyu, iki tehlike haritası</h2>
+          <p>Görme ve duyma, iki ayrı algı kanalı olarak çalışır. Işığa karşı aldığınız önlem sizi sese karşı korumaz; birine karşı güvendeyken diğerine yakalanabilirsiniz. Bu yüzden oyuncunun kafasında aynı anda iki tehlike haritası taşıması gerekir: şu an beni kim görebilir ve şu an beni kim duyabilir? Tek duyulu bir stealth oyununda çoğu odanın tek bir doğru cevabı olur; iki duyu, aynı odada birden fazla doğru ve birden fazla yanlış yaratır. Oyunun derinliği buradan gelir.</p>
+          <h2>Yakalanmanın öğretmesi</h2>
+          <p>Stealth'te başarısızlık sık yaşanır; önemli olan, yakalandığınızda nedenini bilmenizdir. Kaybettiğiniz anda hangi duyuya yakalandığınızı — ışığa mı, sese mi — okuyabilmeniz gerekir; aksi halde ceza ders değil, gürültü olur. İki duyulu bir oyunda bu okunabilirlik iki kat önemlidir, çünkü yanlış derse çalışan oyuncu aynı hatayı başka bir kılıkta tekrarlar.</p>
+          <h2>20 bölüm, 7 biyom</h2>
+          <p>Oyun 20 bölümden oluşuyor ve 7 biyoma yayılıyor. Biyomlar labirentlerin görünümünü ve atmosferini değiştiriyor; karanlığın dokusu her bölgede aynı değil. Amaç, oyuncunun ilerledikçe yalnızca daha zor bölümler değil, farklı hissettiren yerler görmesi. 20 bölüm bizim için bilinçli bir hacim: her bölümün kendine ait bir fikri olsun istedik; fikri olmayan bölüm, sayı kalabalığından ibarettir.</p>
+          <h2>Üç boss</h2>
+          <p>Akışı noktalayan üç boss karşılaşması var. Sıradan bölümlerin ritmi sabırla kurulur; boss karşılaşmaları bu ritmi bilerek kırar. Oyuncunun o ana kadar öğrendikleri sınanır ve bölümler arasında birer eşik hissi doğar.</p>
+          <h2>11 dil</h2>
+          <p>LANTERNFALL 11 dilde oynanabiliyor. Kendini kelimelerden çok ışıkla ve sesle anlatan bir oyunda çevirinin kapsamı yönetilebilir kalıyor; menüleri kendi dilinde görmekse oyuncu için küçük ama gerçek bir konfor. Küçük bir stüdyonun 11 dili taşıyabilmesinin yolu, oyunun asıl dilinin zaten evrensel olmasından geçiyor.</p>
+          <h2>Mobilde stealth</h2>
+          <p>Stealth, mobilde alışılmış bir tür değil; tür sabır ister, mobil oyuncuysa genellikle acelecidir. Bizim cevabımız oturumu uzatmak değil, gerilimi yoğunlaştırmak oldu: her bölüm kendi içinde tamamlanan bir saklambaç turudur. Duraklamak, beklemek, dinlemek — bunlar oyunun ölü anları değil, oyunun kendisidir.</p>
+          <p>LANTERNFALL Google Play'de. Işığınızı dikkatli kullanın.</p>
+        </article>
+      </div>
+
+      <div id="lang-en" hidden>
+        <article>
+          <h1>LANTERNFALL: hide-and-seek with light and sound</h1>
+          <p class="updated">June 19, 2026</p>
+          <p class="lead">LANTERNFALL is a top-down stealth maze game. The goal looks simple: reach the exit with your lantern without getting caught. The interesting part is that getting caught depends on two separate senses: enemies see light and hear sound.</p>
+          <h2>The lantern: tool and risk</h2>
+          <p>The trade-off at the center of the game is the lantern itself. Without light, reading the maze gets hard; with light, you are not the only one who sees it. When and how much to use the lantern is the real question of the game. The best moments of stealth games are the ones where the player trades safety for information; in LANTERNFALL we wanted to concentrate that trade into a single object. The thing in your hand is your map and the trail that betrays you, at the same time.</p>
+          <h2>Two senses, two danger maps</h2>
+          <p>Sight and hearing work as two separate channels of perception. A precaution against light does not protect you from sound; you can be safe from one and caught by the other. So the player has to carry two danger maps at once: who can see me right now, and who can hear me right now? In a single-sense stealth game most rooms have a single right answer; two senses create several right and several wrong answers in the same room. That is where the depth comes from.</p>
+          <h2>Getting caught should teach</h2>
+          <p>Failure is frequent in stealth; what matters is that when you are caught, you know why. You need to be able to read which sense betrayed you — light or sound — otherwise the penalty is noise, not a lesson. With two senses this readability matters twice as much, because a player studying the wrong lesson repeats the same mistake in a different disguise.</p>
+          <h2>20 levels, 7 biomes</h2>
+          <p>The game consists of 20 levels spread across 7 biomes. Biomes change the look and atmosphere of the mazes; the texture of the dark is not the same in every region. The aim is for players to see not just harder levels as they progress, but places that feel different.</p>
+          <h2>Three bosses</h2>
+          <p>Three boss encounters punctuate the flow. The rhythm of regular levels is built on patience; boss encounters deliberately break that rhythm. They test what the player has learned so far and create a sense of threshold between chapters.</p>
+          <h2>Eleven languages</h2>
+          <p>LANTERNFALL can be played in 11 languages. In a game that expresses itself through light and sound rather than words, the scope of translation stays manageable; seeing the menus in your own language is a small but real comfort. The way a small studio can carry 11 languages is that the game's primary language is already universal.</p>
+          <h2>Stealth on mobile</h2>
+          <p>Stealth is not a familiar genre on mobile; the genre demands patience, while mobile players are usually in a hurry. Our answer was not to stretch the session but to concentrate the tension: each level is a self-contained round of hide-and-seek. Pausing, waiting, listening — these are not the dead moments of the game; they are the game.</p>
+          <p>LANTERNFALL is on Google Play. Use your light carefully.</p>
+        </article>
+      </div>
+
+    </div>
+  </main>
+
+  <hr>
+  <footer class="site">
+    <span class="mark">© 2024–2026 Kyrzma Studios</span>
+    <div class="nav">
+      <a href="../../" data-en="Home" data-tr="Ana Sayfa">Ana Sayfa</a> &nbsp;·&nbsp;
+      <a href="../../privacy/" data-en="Privacy Policy" data-tr="Gizlilik Politikası">Gizlilik Politikası</a> &nbsp;·&nbsp;
+      <a href="../../terms/" data-en="Terms of Service" data-tr="Kullanım Koşulları">Kullanım Koşulları</a>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      var isEn = lang === 'en';
+      document.getElementById('lang-en').hidden = !isEn;
+      document.getElementById('lang-tr').hidden = isEn;
+      document.getElementById('btn-en').classList.toggle('active', isEn);
+      document.getElementById('btn-tr').classList.toggle('active', !isEn);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-en]').forEach(function (el) {
+        el.textContent = el.getAttribute(isEn ? 'data-en' : 'data-tr');
+      });
+      try { localStorage.setItem('kyrzma-lang', lang); } catch (e) {}
+    }
+    (function () {
+      var saved = 'tr';
+      try { saved = localStorage.getItem('kyrzma-lang') || 'tr'; } catch (e) {}
+      if (saved !== 'en' && saved !== 'tr') saved = 'tr';
+      setLang(saved);
+    })();
+  </script>
+</body>
+</html>
